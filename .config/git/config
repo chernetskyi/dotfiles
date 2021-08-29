@@ -1,0 +1,55 @@
+; user {{{
+[user]
+    name = Volodymyr Chernetskyi
+    email = v.v.chernetskyi@gmail.com
+    signingkey = B3C1E9705559E743
+; }}}
+
+; core {{{
+[core]
+    editor = nvim
+; }}}
+
+; commit {{{
+[commit]
+    gpgsign = true
+; }}}
+
+; init {{{
+[init]
+    defaultBranch = main
+; }}}
+
+; alias {{{
+[alias]
+    a   = add
+    b   = branch
+    c   = commit --allow-empty
+    d   = diff
+    f   = fetch
+    i   = init
+    l   = log --decorate --graph --format='%Cred%h %Cgreen%cn %Cblue%cr %Creset%s'
+    m   = merge --squash
+    r   = rebase
+    s   = status --short
+    t   = tag
+    bl  = blame
+    cf  = config
+    ch  = checkout
+    cl  = clone
+    cp  = cherry-pick
+    dl  = clone --depth 1 --single-branch --branch
+    pl  = pull --ff-only
+    ps  = push
+    rb  = rebase
+    rl  = reflog
+    rm  = rm -r
+    rv  = revert
+    sb  = clone --single-branch --branch
+    sl  = shortlog
+    st  = stash
+    sw  = switch
+    rmt = remote
+; }}}
+
+; vim:foldmethod=marker:foldlevel=0
