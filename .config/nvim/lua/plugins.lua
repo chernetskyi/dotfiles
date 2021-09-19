@@ -40,6 +40,14 @@ return require('packer').startup(function()
           vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
         end}
   -- }}}
+  use {'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate',
+  -- config {{{
+        config = function()
+          require('nvim-treesitter.configs').setup {
+            highlight = {enable = true}
+          }
+        end}
+  -- }}}
   use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
