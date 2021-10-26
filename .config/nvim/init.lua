@@ -69,16 +69,13 @@ vim.opt.writebackup = false
 -- }}}
 
 -- Movement {{{
+vim.opt.mouse = 'a'
+
 vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
 
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', {noremap = true})
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', {noremap = true})
 vim.api.nvim_set_keymap('n', 'J', 'mzJ`z', {noremap = true})
-
-vim.api.nvim_set_keymap('n', '<Up>', '<Nop>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<Down>', '<Nop>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<Left>', '<Nop>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<Right>', '<Nop>', {noremap = true})
 -- }}}
 
 -- Undo breakpoints {{{
