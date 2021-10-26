@@ -5,7 +5,6 @@ if exist tmux && [[ -z "${TMUX}" ]]; then
   if ! tmux has-session -t main 2> /dev/null; then
     tmux new-session -d -s main -n first
     tmux new-window  -d -t main -n second
-    tmux new-window  -d -t main -n notes vim /tmp/notes
   fi
   tmux attach-session -t main
 fi

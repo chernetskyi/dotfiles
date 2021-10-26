@@ -25,14 +25,13 @@ augroup END
 vim.opt.list = true
 vim.opt.listchars = 'tab:-->,space:·'
 
-vim.opt.scrolloff = 4
-vim.opt.sidescrolloff = 4
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 16
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.wildmenu = true
-vim.opt.wildmode = 'list:longest'
+vim.opt.wildmode = 'longest:full'
 -- }}}
 
 -- Indentation {{{
@@ -104,13 +103,6 @@ vim.api.nvim_set_keymap('i', ';', ';<c-g>u', {noremap = true})
 vim.cmd[[filetype plugin indent on]]
 vim.opt.hidden = true
 vim.opt.modelines = 1
-
-vim.cmd[[
-augroup map-capslock-to-esc
-    autocmd VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-    autocmd VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
-augroup END
-]]
 
 vim.cmd[[
 augroup lua-highlight
