@@ -16,7 +16,17 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
 
-  use 'neovim/nvim-lspconfig'
+  use {'neovim/nvim-lspconfig',
+  -- config {{{
+        config = function()
+          require('lspconfig').bashls.setup{}
+          require('lspconfig').dockerls.setup{}
+          require('lspconfig').elixirls.setup{cmd = { "/usr/bin/elixir-ls/language_server.sh"};}
+          require('lspconfig').jsonls.setup{}
+          require('lspconfig').terraformls.setup{}
+          require('lspconfig').yamlls.setup{}
+        end}
+  -- }}}
 
   use {'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate',
   -- config {{{
@@ -69,7 +79,7 @@ return require('packer').startup(function()
   use {'ionide/Ionide-vim', requires = {'neovim/nvim-lspconfig', 'hrsh7th/nvim-cmp'}, run = 'make fsautocomplete',
   -- config {{{
         config = function()
-          require('lspconfig')['fsautocomplete'].setup {
+          require('lspconfig').fsautocomplete.setup {
             capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
           }
           vim.cmd[[
@@ -80,8 +90,6 @@ return require('packer').startup(function()
           ]]
         end}
   -- }}}
-
-  use 'hashivim/vim-terraform'
 
   use 'lervag/vimtex'
 
