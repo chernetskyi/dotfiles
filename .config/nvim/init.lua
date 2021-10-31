@@ -69,8 +69,6 @@ vim.opt.writebackup = false
 -- }}}
 
 -- Movement {{{
-vim.opt.mouse = 'a'
-
 vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
 
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', {noremap = true})

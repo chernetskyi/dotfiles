@@ -43,7 +43,7 @@ return require('packer').startup(function()
         end}
   -- }}}
 
-  use {'hrsh7th/nvim-cmp', requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer'},
+  use {'hrsh7th/nvim-cmp', requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path'},
   -- config {{{
         config = function()
           local cmp = require 'cmp'
@@ -58,7 +58,8 @@ return require('packer').startup(function()
             },
             sources = {
               { name = 'nvim_lsp' },
-              { name = 'buffer' }
+              { name = 'buffer' },
+              { name = 'path'}
             }
           })
 
@@ -69,7 +70,6 @@ return require('packer').startup(function()
   use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
-          vim.g.nvim_tree_ignore = {'.git'}
           vim.g.nvim_tree_add_trailing = 1
           require('nvim-tree').setup{auto_close = true}
           vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true})
@@ -92,6 +92,27 @@ return require('packer').startup(function()
   -- }}}
 
   use 'lervag/vimtex'
+
+  use {'tversteeg/registers.nvim',
+  -- config {{{
+        config = function()
+          vim.g.registers_tab_symbol = "-->"
+          vim.g.registers_space_symbol = "·"
+          vim.g.registers_show_empty_registers = 0
+          vim.g.registers_hide_only_whitespace = 1
+          vim.g.registers_window_border = "single"
+        end}
+  -- }}}
+
+  use {'steelsojka/pears.nvim',
+  -- config {{{
+        config = function()
+          require('pears').setup(function(conf)
+            conf.remove_pair_on_outer_backspace(false)
+            conf.expand_on_enter(true)
+          end)
+        end}
+  -- }}}
 
   use {'shaunsingh/nord.nvim',
   -- config {{{
