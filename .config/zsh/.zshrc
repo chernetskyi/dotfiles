@@ -60,7 +60,7 @@ bindkey -v "^?" backward-delete-char
 bindkey -v "\e[3~" delete-char
 bindkey -v "^[[1~" beginning-of-line
 bindkey -v "^[[4~" end-of-line
-# }}}
+# }}} 
 
 # Change default behavior with flags {{{
 alias cp="cp -r"
@@ -68,6 +68,7 @@ alias mkdir="mkdir -p"
 alias rm="rm -rf"
 alias scp="scp -r"
 alias sudo="sudo"
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 # }}}
 
 # Shorten commands {{{
@@ -87,7 +88,8 @@ exist ag        && alias ack="ag"
 exist bat       && alias cat="bat -pp --theme Nord"
 exist curlie    && alias curl="curlie"
 exist dog       && alias dig="dog"
-exist exa       && alias ls="exa --group-directories-first --icons"
+exist exa       && alias ls="exa --group-directories-first --icons" \
+                && alias tree="ls --tree"
 exist fd        && alias find="fd"
 exist sd        && alias sed="sd"
 exist rg        && alias grep="rg"
