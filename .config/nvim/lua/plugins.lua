@@ -21,7 +21,7 @@ return require('packer').startup(function()
         config = function()
           require('lspconfig').bashls.setup{}
           require('lspconfig').dockerls.setup{}
-          require('lspconfig').elixirls.setup{cmd = { "/usr/bin/elixir-ls/language_server.sh"};}
+          require('lspconfig').elixirls.setup{cmd = { "/usr/lib/elixir-ls/language_server.sh"};}
           require('lspconfig').jsonls.setup{}
           require('lspconfig').terraformls.setup{}
           require('lspconfig').yamlls.setup{}
