@@ -18,11 +18,6 @@ fi
   && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.p10k.zsh"
 # }}}
 
-# dir_colors {{{
-[[ -r "${XDG_CONFIG_HOME:-$HOME/.config}/dir_colors" ]] \
-  && eval $(dircolors "${XDG_CONFIG_HOME:-$HOME/.config}/dir_colors")
-# }}}
-
 # zsh options {{{
 setopt autocd nomatch nohup nonotify menu_complete
 unsetopt beep extendedglob
@@ -41,8 +36,7 @@ _comp_options+=(globdots)
 
 # Plugins {{{
 [[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] \
-  && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
-  && export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#a5abb6"
+  && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # }}}
 
 # History {{{
