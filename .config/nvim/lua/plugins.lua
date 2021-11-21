@@ -11,20 +11,55 @@ return require('packer').startup(function()
         end}
   -- }}}
 
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-repeat'
-
-  use {'neovim/nvim-lspconfig',
+  use 'neovim/nvim-lspconfig'
+  use {'hrsh7th/vim-vsnip'}
+  use {'hrsh7th/nvim-cmp', requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-vsnip', 'hrsh7th/cmp-cmdline'},
   -- config {{{
         config = function()
-          require('lspconfig').bashls.setup{}
-          require('lspconfig').dockerls.setup{}
-          require('lspconfig').elixirls.setup{cmd = { "/usr/lib/elixir-ls/language_server.sh"};}
-          require('lspconfig').jsonls.setup{}
-          require('lspconfig').terraformls.setup{}
-          require('lspconfig').yamlls.setup{}
+          vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+
+          local cmp = require 'cmp'
+          cmp.setup({
+            snippet = {
+              expand = function(args)
+                vim.fn["vsnip#anonymous"](args.body)
+              end
+            },
+            mapping = {
+              ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+              ['<C-f>'] = cmp.mapping.scroll_docs(4),
+              ['<C-Space>'] = cmp.mapping.complete(),
+              ['<C-e>'] = cmp.mapping.close(),
+              ['<CR>'] = cmp.mapping.confirm(),
+              ['<Tab>'] = cmp.mapping.select_next_item()
+            },
+            sources = cmp.config.sources({
+              { name = 'nvim_lsp' },
+              { name = 'vsnip' },
+            }, {
+              { name = 'buffer' },
+            })
+          })
+
+          cmp.setup.cmdline('/', {
+            sources = {{ name = 'buffer'}}
+          })
+
+          cmp.setup.cmdline(':', {
+            sources = cmp.config.sources({{ name = 'path' }}, {{ name = 'cmdline' }})
+          })
+
+          local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+          local servers = { 'bashls', 'dockerls', 'fsautocomplete', 'jsonls', 'terraformls', 'yamlls' }
+          for _, lsp in ipairs(servers) do
+            require('lspconfig')[lsp].setup {
+              capabilities = capabilities
+            }
+          end
+          require('lspconfig').elixirls.setup{
+            capabilities = capabilities,
+            cmd = { "/usr/lib/elixir-ls/language_server.sh"}
+          }
         end}
   -- }}}
 
@@ -32,6 +67,16 @@ return require('packer').startup(function()
   -- config {{{
         config = function()
           require('nvim-treesitter.configs').setup{highlight = {enable = true}}
+        end}
+  -- }}}
+
+  use {'steelsojka/pears.nvim',
+  --  config {{{
+        config = function()
+          require('pears').setup(function(conf)
+            conf.remove_pair_on_outer_backspace(false)
+            conf.expand_on_enter(true)
+          end)
         end}
   -- }}}
 
@@ -43,55 +88,24 @@ return require('packer').startup(function()
         end}
   -- }}}
 
-  use {'hrsh7th/nvim-cmp', requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path'},
-  -- config {{{
-        config = function()
-          local cmp = require 'cmp'
-          cmp.setup({
-            mapping = {
-              ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-              ['<C-f>'] = cmp.mapping.scroll_docs(4),
-              ['<C-Space>'] = cmp.mapping.complete(),
-              ['<C-e>'] = cmp.mapping.close(),
-              ['<CR>'] = cmp.mapping.confirm(),
-              ['<Tab>'] = cmp.mapping.select_next_item()
-            },
-            sources = {
-              { name = 'nvim_lsp' },
-              { name = 'buffer' },
-              { name = 'path'}
-            }
-          })
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-surround'
+  use 'tpope/vim-repeat'
 
-          vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
-        end}
-  -- }}}
-
-  use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
-  -- config {{{
-        config = function()
-          vim.g.nvim_tree_add_trailing = 1
-          require('nvim-tree').setup{auto_close = true}
-          vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true})
-        end}
-  -- }}}
-
-  use {'ionide/Ionide-vim', requires = {'neovim/nvim-lspconfig', 'hrsh7th/nvim-cmp'}, run = 'make fsautocomplete',
-  -- config {{{
-        config = function()
-          require('lspconfig').fsautocomplete.setup {
-            capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-          }
-          vim.cmd[[
-            augroup fsharp-tooltip
-              autocmd!
-              autocmd CursorHold *.fs,*.fsi,*.fsx call fsharp#showTooltip()
-            augroup END
-          ]]
-        end}
-  -- }}}
+  use 'dstein64/vim-startuptime'
 
   use 'lervag/vimtex'
+
+  use {'aserowy/tmux.nvim',
+  -- config {{{
+    config = function()
+      require("tmux").setup{
+        navigation = {enable_default_keybindings = true},
+        resize = {enable_default_keybindings = true}
+      }
+    end}
+  -- }}}
 
   use {'tversteeg/registers.nvim',
   -- config {{{
@@ -104,23 +118,22 @@ return require('packer').startup(function()
         end}
   -- }}}
 
-  use {'steelsojka/pears.nvim',
+  use {'chentau/marks.nvim',
   -- config {{{
         config = function()
-          require('pears').setup(function(conf)
-            conf.remove_pair_on_outer_backspace(false)
-            conf.expand_on_enter(true)
-          end)
+          require('marks').setup {
+              default_mappings = false,
+              builtin_marks = {".", "\"", "0", "'"}
+          }
         end}
   -- }}}
 
-  use {'shaunsingh/nord.nvim',
+  use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
-          vim.g.nord_contrast = true
-          vim.g.nord_borders = true
-          vim.g.nord_italic = false
-          require('nord').set()
+          vim.g.nvim_tree_add_trailing = 1
+          require('nvim-tree').setup{auto_close = true}
+          vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true})
         end}
   -- }}}
 
@@ -128,26 +141,16 @@ return require('packer').startup(function()
   -- config {{{
         config = function()
           require('lualine').setup {
-            options = {theme = 'nord'},
+            options = {theme = 'tokyonight'},
             sections = {lualine_x = {'filetype'}},
             tabline = {lualine_a = {'buffers'}, lualine_z = {'tabs'}},
             extensions = {'fugitive', 'nvim-tree'}
           }
         end}
-  --  }}}
+  --  }}} 
 
-  use {'aserowy/tmux.nvim',
-  -- config {{{
-    config = function()
-      require("tmux").setup{
-        navigation = {enable_default_keybindings = true},
-        resize = {enable_default_keybindings = true}
-      }
-    end}
-  -- }}}
-
-  use 'dstein64/vim-startuptime'
-
+  vim.g.tokyonight_style = 'night'
+  use 'folke/tokyonight.nvim'
 end)
 
 -- vim:foldmethod=marker:foldlevel=0

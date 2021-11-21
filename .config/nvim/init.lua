@@ -1,12 +1,12 @@
 require 'plugins'
 
 -- Colors {{{
-vim.cmd[[colorscheme nord]]
-vim.cmd[[syntax enable]]
 vim.opt.termguicolors = true
+vim.cmd[[syntax enable]]
+vim.cmd[[colorscheme tokyonight]]
 -- }}}
 
--- UI {{{
+-- UI {{{ 
 vim.opt.cursorline = true
 vim.opt.lazyredraw = true
 vim.opt.showmode = false
@@ -37,10 +37,9 @@ vim.opt.wildmode = 'longest:full'
 -- Indentation {{{
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-vim.opt.smarttab = true
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.tabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.opt.tabstop = 2
 -- }}}
 
 -- Folding {{{
