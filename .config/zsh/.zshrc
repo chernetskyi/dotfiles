@@ -19,17 +19,20 @@ fi
 # }}}
 
 # zsh options {{{
-setopt autocd bashautolist nobeep noextendedglob nohup nolistambiguous nomatch nonotify
+setopt autocd nobeep noextendedglob nohup nomatch nonotify
 # }}}
 
 # Completion {{{
+setopt bashautolist nolistambiguous
 fpath=(/usr/share/zsh/site-functions $fpath)
 autoload -Uz compinit
 zmodload zsh/complist
+zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' squeeze-slashes true
+zstyle ':completion:*:*:*:*:descriptions' format '%F{yellow}%B-- %d --%b%f'
 compinit
 _comp_options+=(globdots)
 # }}}
@@ -43,7 +46,7 @@ _comp_options+=(globdots)
 HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history"
 HISTSIZE=50000
 SAVEHIST=50000
-setopt appendhistory histignorespace histignoredups histnofunctions histreduceblanks
+setopt appendhistory histfindnodups histignorespace histignoredups histreduceblanks
 # }}}
 
 # Vi mode {{{
