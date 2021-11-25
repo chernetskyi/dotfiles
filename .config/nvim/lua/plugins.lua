@@ -18,6 +18,34 @@ return require('packer').startup(function()
         config = function()
           vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
+          local kind_icons = {
+            Text = "",
+            Method = "",
+            Function = "",
+            Constructor = "",
+            Field = "",
+            Variable = "",
+            Class = "ﴯ",
+            Interface = "",
+            Module = "",
+            Property = "ﰠ",
+            Unit = "",
+            Value = "",
+            Enum = "",
+            Keyword = "",
+            Snippet = "",
+            Color = "",
+            File = "",
+            Reference = "",
+            Folder = "",
+            EnumMember = "",
+            Constant = "",
+            Struct = "",
+            Event = "",
+            Operator = "",
+            TypeParameter = ""
+          }
+
           local cmp = require 'cmp'
           cmp.setup({
             snippet = {
@@ -26,19 +54,21 @@ return require('packer').startup(function()
               end
             },
             mapping = {
-              ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-              ['<C-f>'] = cmp.mapping.scroll_docs(4),
-              ['<C-Space>'] = cmp.mapping.complete(),
-              ['<C-e>'] = cmp.mapping.close(),
-              ['<CR>'] = cmp.mapping.confirm(),
-              ['<Tab>'] = cmp.mapping.select_next_item()
+              ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+              ['<CR>'] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace})
             },
             sources = cmp.config.sources({
               { name = 'nvim_lsp' },
               { name = 'vsnip' },
             }, {
               { name = 'buffer' },
-            })
+            }),
+            formatting = {
+              format = function(entry, vim_item)
+                vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+                return vim_item
+              end
+            }
           })
 
           cmp.setup.cmdline('/', {
@@ -50,16 +80,16 @@ return require('packer').startup(function()
           })
 
           local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-          local servers = { 'bashls', 'dockerls', 'fsautocomplete', 'jsonls', 'terraformls', 'yamlls' }
+          local servers = { 'bashls', 'cssls', 'dockerls', 'elixirls', 'fsautocomplete', 'html', 'jsonls', 'yamlls' }
           for _, lsp in ipairs(servers) do
             require('lspconfig')[lsp].setup {
               capabilities = capabilities
             }
           end
-          require('lspconfig').elixirls.setup{
-            capabilities = capabilities,
-            cmd = { "/usr/lib/elixir-ls/language_server.sh"}
-          }
+          require('lspconfig').elixirls.setup{cmd = { "/usr/lib/elixir-ls/language_server.sh"}}
+          require('lspconfig').cssls.setup{cmd = {"vscode-css-languageserver", "--stdio"}}
+          require('lspconfig').html.setup{cmd = {"vscode-html-languageserver", "--stdio"}}
+          require('lspconfig').jsonls.setup{cmd = {"vscode-json-languageserver", "--stdio"}}
         end}
   -- }}}
 
@@ -97,6 +127,8 @@ return require('packer').startup(function()
 
   use 'lervag/vimtex'
 
+  use 'ionide/Ionide-vim'
+
   use {'aserowy/tmux.nvim',
   -- config {{{
     config = function()
@@ -128,12 +160,19 @@ return require('packer').startup(function()
         end}
   -- }}}
 
+  use {'editorconfig/editorconfig-vim',
+  -- config {{{
+        config = function()
+          vim.g.EditorConfig_exclude_patterns = 'fugitive://.*'
+        end}
+  -- }}}
+
   use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
           vim.g.nvim_tree_add_trailing = 1
           require('nvim-tree').setup{auto_close = true}
-          vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true})
+          vim.api.nvim_set_keymap('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', {noremap = true})
         end}
   -- }}}
 
@@ -151,6 +190,7 @@ return require('packer').startup(function()
 
   vim.g.tokyonight_style = 'night'
   use 'folke/tokyonight.nvim'
+  vim.cmd[[colorscheme tokyonight]]
 end)
 
 -- vim:foldmethod=marker:foldlevel=0

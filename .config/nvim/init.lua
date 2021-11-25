@@ -3,14 +3,12 @@ require 'plugins'
 -- Colors {{{
 vim.opt.termguicolors = true
 vim.cmd[[syntax enable]]
-vim.cmd[[colorscheme tokyonight]]
 -- }}}
 
 -- UI {{{ 
 vim.opt.cursorline = true
 vim.opt.lazyredraw = true
 vim.opt.showmode = false
-vim.opt.wrap = false
 
 vim.opt.number = true
 vim.opt.numberwidth = 1
@@ -64,15 +62,29 @@ augroup END
 -- History {{{
 vim.opt.backup = false
 vim.opt.swapfile = false
+vim.opt.undofile = true
 vim.opt.writebackup = false
 -- }}}
 
--- Movement {{{
+-- Key mappings {{{
 vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
 
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', {noremap = true})
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', {noremap = true})
 vim.api.nvim_set_keymap('n', 'J', 'mzJ`z', {noremap = true})
+
+vim.api.nvim_set_keymap('n', 'gf', ':edit <cfile><cr>', {noremap = true})
+
+vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true})
+vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true})
+
+vim.api.nvim_set_keymap('v', 'y', 'myy`y', {noremap = true})
+vim.api.nvim_set_keymap('v', 'Y', 'myY`y', {noremap = true})
+
+vim.cmd[[
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+]]
 -- }}}
 
 -- Undo breakpoints {{{
@@ -94,6 +106,7 @@ vim.api.nvim_set_keymap('i', ';', ';<c-g>u', {noremap = true})
 -- }}}
 
 -- Misc {{{
+vim.opt.mouse = 'a'
 vim.cmd[[filetype plugin indent on]]
 vim.opt.hidden = true
 vim.opt.modelines = 1
