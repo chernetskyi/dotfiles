@@ -19,17 +19,17 @@ fi
 # }}}
 
 # zsh options {{{
-setopt autocd nomatch nohup nonotify menu_complete
-unsetopt beep extendedglob
+setopt autocd bashautolist nobeep noextendedglob nohup nolistambiguous nomatch nonotify
 # }}}
 
 # Completion {{{
 fpath=(/usr/share/zsh/site-functions $fpath)
 autoload -Uz compinit
 zmodload zsh/complist
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' rehash true
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' squeeze-slashes true
 compinit
 _comp_options+=(globdots)
 # }}}
