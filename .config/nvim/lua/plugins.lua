@@ -65,7 +65,7 @@ return require('packer').startup(function()
             }),
             formatting = {
               format = function(entry, vim_item)
-                vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+                vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
                 return vim_item
               end
             }
@@ -80,7 +80,7 @@ return require('packer').startup(function()
           })
 
           local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-          local servers = { 'bashls', 'cssls', 'dockerls', 'elixirls', 'fsautocomplete', 'html', 'jsonls', 'yamlls' }
+          local servers = { 'bashls', 'cssls', 'dockerls', 'elixirls', 'html', 'jsonls', 'yamlls' }
           for _, lsp in ipairs(servers) do
             require('lspconfig')[lsp].setup {
               capabilities = capabilities
@@ -93,7 +93,7 @@ return require('packer').startup(function()
         end}
   -- }}}
 
-  use {'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate',
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
   -- config {{{
         config = function()
           require('nvim-treesitter.configs').setup{highlight = {enable = true}}
@@ -110,7 +110,7 @@ return require('packer').startup(function()
         end}
   -- }}}
 
-  use {'andymass/vim-matchup',
+  use {'andymass/vim-matchup', event = 'VimEnter',
   -- config {{{
         config = function()
           vim.g.loaded_matchit = 1
@@ -120,14 +120,11 @@ return require('packer').startup(function()
 
   use 'tpope/vim-commentary'
   use 'tpope/vim-fugitive'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-repeat'
+  use {'tpope/vim-surround', requires = 'tpope/vim-repeat'}
 
   use 'dstein64/vim-startuptime'
 
-  use 'lervag/vimtex'
-
-  use 'ionide/Ionide-vim'
+  use {'ionide/Ionide-vim', run = 'make fsautocomplete'}
 
   use {'aserowy/tmux.nvim',
   -- config {{{
@@ -160,13 +157,6 @@ return require('packer').startup(function()
         end}
   -- }}}
 
-  use {'editorconfig/editorconfig-vim',
-  -- config {{{
-        config = function()
-          vim.g.EditorConfig_exclude_patterns = 'fugitive://.*'
-        end}
-  -- }}}
-
   use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
@@ -176,7 +166,7 @@ return require('packer').startup(function()
         end}
   -- }}}
 
-  use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons'},
+  use {'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
           require('lualine').setup {

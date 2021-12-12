@@ -13,11 +13,11 @@ vim.opt.showmode = false
 vim.opt.number = true
 vim.opt.numberwidth = 1
 vim.cmd[[
-augroup toggle-numbers
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
-augroup END
+  augroup toggle-numbers
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+  augroup END
 ]]
 
 vim.opt.list = true
@@ -49,13 +49,12 @@ vim.opt.foldmethod = 'indent'
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.inccommand = 'nosplit'
 vim.cmd[[
-augroup vimrc-incsearch-highlight
+  augroup vimrc-incsearch-highlight
     autocmd!
     autocmd CmdlineEnter /,\? :set hlsearch
     autocmd CmdlineLeave /,\? :set nohlsearch
-augroup END
+  augroup END
 ]]
 -- }}}
 
@@ -67,8 +66,6 @@ vim.opt.writebackup = false
 -- }}}
 
 -- Key mappings {{{
-vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
-
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', {noremap = true})
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', {noremap = true})
 vim.api.nvim_set_keymap('n', 'J', 'mzJ`z', {noremap = true})
@@ -82,9 +79,18 @@ vim.api.nvim_set_keymap('v', 'y', 'myy`y', {noremap = true})
 vim.api.nvim_set_keymap('v', 'Y', 'myY`y', {noremap = true})
 
 vim.cmd[[
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+  noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+  noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 ]]
+
+vim.api.nvim_set_keymap('', '<Up>', '', {noremap = true})
+vim.api.nvim_set_keymap('', '<Down>', '', {noremap = true})
+vim.api.nvim_set_keymap('', '<Left>', '', {noremap = true})
+vim.api.nvim_set_keymap('', '<Right>', '', {noremap = true})
+vim.api.nvim_set_keymap('i', '<Up>', '', {noremap = true})
+vim.api.nvim_set_keymap('i', '<Down>', '', {noremap = true})
+vim.api.nvim_set_keymap('i', '<Left>', '', {noremap = true})
+vim.api.nvim_set_keymap('i', '<Right>', '', {noremap = true})
 -- }}}
 
 -- Undo breakpoints {{{
@@ -112,10 +118,10 @@ vim.opt.hidden = true
 vim.opt.modelines = 1
 
 vim.cmd[[
-augroup lua-highlight
+  augroup lua-highlight
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
-augroup END
+  augroup END
 ]]
 -- }}}
 
