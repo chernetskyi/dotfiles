@@ -151,8 +151,8 @@ return require('packer').startup(function()
   -- config {{{
         config = function()
           require('marks').setup {
-              default_mappings = false,
-              builtin_marks = {".", "\"", "0", "'"}
+            default_mappings = false,
+            builtin_marks = {".", "\"", "0", "'"}
           }
         end}
   -- }}}

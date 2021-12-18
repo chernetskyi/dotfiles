@@ -2,7 +2,6 @@ require 'plugins'
 
 -- Colors {{{
 vim.opt.termguicolors = true
-vim.cmd[[syntax enable]]
 -- }}}
 
 -- UI {{{ 
@@ -21,7 +20,7 @@ vim.cmd[[
 ]]
 
 vim.opt.list = true
-vim.opt.listchars = 'tab:-->,space:·'
+vim.opt.listchars = {tab = '-->', space = '·'}
 
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 16
@@ -29,7 +28,7 @@ vim.opt.sidescrolloff = 16
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.wildmode = 'longest:full'
+vim.opt.wildmode = {'longest', 'full'}
 -- }}}
 
 -- Indentation {{{
@@ -83,40 +82,21 @@ vim.cmd[[
   noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 ]]
 
-vim.api.nvim_set_keymap('', '<Up>', '', {noremap = true})
-vim.api.nvim_set_keymap('', '<Down>', '', {noremap = true})
-vim.api.nvim_set_keymap('', '<Left>', '', {noremap = true})
-vim.api.nvim_set_keymap('', '<Right>', '', {noremap = true})
-vim.api.nvim_set_keymap('i', '<Up>', '', {noremap = true})
-vim.api.nvim_set_keymap('i', '<Down>', '', {noremap = true})
-vim.api.nvim_set_keymap('i', '<Left>', '', {noremap = true})
-vim.api.nvim_set_keymap('i', '<Right>', '', {noremap = true})
--- }}}
+local breakpoints = {'.', ',', '!', '?', '{', '}', '[', ']', '(', ')', '<', '>', '=', ':', ':'}
+for _, breakpoint in ipairs(breakpoints) do
+  vim.api.nvim_set_keymap('i', breakpoint, breakpoint .. '<c-g>u', {noremap = true})
+end
 
--- Undo breakpoints {{{
-vim.api.nvim_set_keymap('i', '.', '.<c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', ',', ',<c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', '!', '!<c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', '?', '?<c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', '{', '{<c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', '}', '}<c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', '[', '[<c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', ']', ']<c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', '(', '(<c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', ')', ')<c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', '<', '<<c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', '>', '><c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', '=', '=<c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', ':', ':<c-g>u', {noremap = true})
-vim.api.nvim_set_keymap('i', ';', ';<c-g>u', {noremap = true})
+local arrows = {'<Up>', '<Down>', '<Left>', '<Right>'}
+for _, arrow in ipairs(arrows) do
+  vim.api.nvim_set_keymap('', arrow, '', {noremap = true})
+  vim.api.nvim_set_keymap('i', arrow, '', {noremap = true})
+end
 -- }}}
 
 -- Misc {{{
-vim.opt.mouse = 'a'
-vim.cmd[[filetype plugin indent on]]
-vim.opt.hidden = true
 vim.opt.modelines = 1
-
+vim.opt.mouse = 'a'
 vim.cmd[[
   augroup lua-highlight
     autocmd!
