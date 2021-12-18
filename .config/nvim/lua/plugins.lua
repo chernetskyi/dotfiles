@@ -157,6 +157,23 @@ return require('packer').startup(function()
         end}
   -- }}}
 
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-fzf-native.nvim'},
+  -- config {{{
+        config = function()
+          require('telescope').setup {
+            extensions = {
+              fzf = {
+                fuzzy = true,
+                override_generic_sorter = true,
+                override_file_sorter = true,
+              }
+            }
+          }
+          require('telescope').load_extension('fzf')
+        end}
+  -- }}}
+
   use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
