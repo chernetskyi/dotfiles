@@ -80,12 +80,10 @@ return require('packer').startup(function()
           local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
           local servers = { 'bashls', 'cssls', 'dockerls', 'elixirls', 'html', 'jsonls', 'pylsp', 'sqlls', 'vimls', 'yamlls' }
           for _, lsp in ipairs(servers) do
-            require('lspconfig')[lsp].setup {
-              capabilities = capabilities
-            }
+            require('lspconfig')[lsp].setup{ capabilities = capabilities }
           end
-          require('lspconfig').elixirls.setup{cmd = { '/usr/lib/elixir-ls/language_server.sh'}}
           require('lspconfig').cssls.setup{cmd = {'vscode-css-languageserver', '--stdio'}}
+          require('lspconfig').elixirls.setup{cmd = {'/usr/lib/elixir-ls/language_server.sh'}}
           require('lspconfig').html.setup{cmd = {'vscode-html-languageserver', '--stdio'}}
           require('lspconfig').jsonls.setup{cmd = {'vscode-json-languageserver', '--stdio'}}
         end}
