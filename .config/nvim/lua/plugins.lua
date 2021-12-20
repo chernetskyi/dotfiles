@@ -17,38 +17,38 @@ return require('packer').startup(function()
           vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
           local kind_icons = {
-            Text = "",
-            Method = "",
-            Function = "",
-            Constructor = "",
-            Field = "",
-            Variable = "",
-            Class = "ﴯ",
-            Interface = "",
-            Module = "",
-            Property = "ﰠ",
-            Unit = "",
-            Value = "",
-            Enum = "",
-            Keyword = "",
-            Snippet = "",
-            Color = "",
-            File = "",
-            Reference = "",
-            Folder = "",
-            EnumMember = "",
-            Constant = "",
-            Struct = "",
-            Event = "",
-            Operator = "",
-            TypeParameter = ""
+            Text = '',
+            Method = '',
+            Function = '',
+            Constructor = '',
+            Field = '',
+            Variable = '',
+            Class = 'ﴯ',
+            Interface = '',
+            Module = '',
+            Property = 'ﰠ',
+            Unit = '',
+            Value = '',
+            Enum = '',
+            Keyword = '',
+            Snippet = '',
+            Color = '',
+            File = '',
+            Reference = '',
+            Folder = '',
+            EnumMember = '',
+            Constant = '',
+            Struct = '',
+            Event = '',
+            Operator = '',
+            TypeParameter = ''
           }
 
           local cmp = require 'cmp'
           cmp.setup({
             snippet = {
               expand = function(args)
-                vim.fn["vsnip#anonymous"](args.body)
+                vim.fn['vsnip#anonymous'](args.body)
               end
             },
             mapping = {
@@ -84,10 +84,10 @@ return require('packer').startup(function()
               capabilities = capabilities
             }
           end
-          require('lspconfig').elixirls.setup{cmd = { "/usr/lib/elixir-ls/language_server.sh"}}
-          require('lspconfig').cssls.setup{cmd = {"vscode-css-languageserver", "--stdio"}}
-          require('lspconfig').html.setup{cmd = {"vscode-html-languageserver", "--stdio"}}
-          require('lspconfig').jsonls.setup{cmd = {"vscode-json-languageserver", "--stdio"}}
+          require('lspconfig').elixirls.setup{cmd = { '/usr/lib/elixir-ls/language_server.sh'}}
+          require('lspconfig').cssls.setup{cmd = {'vscode-css-languageserver', '--stdio'}}
+          require('lspconfig').html.setup{cmd = {'vscode-html-languageserver', '--stdio'}}
+          require('lspconfig').jsonls.setup{cmd = {'vscode-json-languageserver', '--stdio'}}
         end}
   -- }}}
 
@@ -127,7 +127,7 @@ return require('packer').startup(function()
   use {'aserowy/tmux.nvim',
   -- config {{{
     config = function()
-      require("tmux").setup{
+      require('tmux').setup{
         navigation = {enable_default_keybindings = true},
         resize = {enable_default_keybindings = true}
       }
@@ -137,11 +137,11 @@ return require('packer').startup(function()
   use {'tversteeg/registers.nvim',
   -- config {{{
         config = function()
-          vim.g.registers_tab_symbol = "-->"
-          vim.g.registers_space_symbol = "·"
+          vim.g.registers_tab_symbol = '-->'
+          vim.g.registers_space_symbol = '·'
           vim.g.registers_show_empty_registers = 0
           vim.g.registers_hide_only_whitespace = 1
-          vim.g.registers_window_border = "single"
+          vim.g.registers_window_border = 'single'
         end}
   -- }}}
 
@@ -150,8 +150,8 @@ return require('packer').startup(function()
         config = function()
           require('marks').setup {
             default_mappings = false,
-            builtin_marks = {".", "\"", "0", "'"},
-            excluded_filetypes = {"NvimTree"}
+            builtin_marks = {'.', '"', '0', '\''},
+            excluded_filetypes = {'NvimTree'}
           }
         end}
   -- }}}
