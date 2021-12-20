@@ -152,7 +152,8 @@ return require('packer').startup(function()
         config = function()
           require('marks').setup {
             default_mappings = false,
-            builtin_marks = {".", "\"", "0", "'"}
+            builtin_marks = {".", "\"", "0", "'"},
+            excluded_filetypes = {"NvimTree"}
           }
         end}
   -- }}}
@@ -178,7 +179,16 @@ return require('packer').startup(function()
   -- config {{{
         config = function()
           vim.g.nvim_tree_add_trailing = 1
-          require('nvim-tree').setup{auto_close = true}
+          require('nvim-tree').setup {
+            auto_close = true,
+            open_on_tab = true,
+            update_focused_file = { enable = true },
+            diagnostics = { enable = true },
+            view = {
+              auto_resize = true,
+              number = true
+            }
+          }
           vim.api.nvim_set_keymap('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', {noremap = true})
         end}
   -- }}}
