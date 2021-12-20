@@ -39,7 +39,8 @@ _comp_options+=(globdots)
 
 # Plugins {{{
 [[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] \
-  && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+  && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
+  && bindkey '^ ' autosuggest-accept
 # }}}
 
 # History {{{
