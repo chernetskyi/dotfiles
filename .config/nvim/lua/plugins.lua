@@ -11,9 +11,7 @@ return require('packer').startup(function()
         end}
   -- }}}
 
-  use 'neovim/nvim-lspconfig'
-  use {'hrsh7th/vim-vsnip'}
-  use {'hrsh7th/nvim-cmp', requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-vsnip', 'hrsh7th/cmp-cmdline'},
+  use {'hrsh7th/nvim-cmp', requires = {'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-vsnip', 'hrsh7th/vim-vsnip', 'hrsh7th/cmp-cmdline'},
   -- config {{{
         config = function()
           vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
