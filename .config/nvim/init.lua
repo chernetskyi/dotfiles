@@ -95,6 +95,7 @@ end
 -- }}}
 
 -- Misc {{{
+vim.opt.confirm = true
 vim.opt.modelines = 1
 vim.opt.mouse = 'a'
 vim.cmd[[
