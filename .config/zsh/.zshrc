@@ -40,6 +40,8 @@ _comp_options+=(globdots)
 # Plugins {{{
 [[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] \
   && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
+  && export ZSH_AUTOSUGGEST_HISTORY_IGNORE=("cd *") \
+  && export ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=() \
   && bindkey '^ ' autosuggest-accept
 
 [[ -r /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]] \
@@ -61,6 +63,9 @@ bindkey -v "^?" backward-delete-char
 bindkey -v "\e[3~" delete-char
 bindkey -v "^[[1~" beginning-of-line
 bindkey -v "^[[4~" end-of-line
+
+bindkey "^[[A" up-line
+bindkey "^[[B" down-line
 # }}} 
 
 # Change default behavior with flags {{{
