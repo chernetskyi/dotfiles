@@ -201,9 +201,16 @@ return require('packer').startup(function()
         end}
   --  }}} 
 
-  vim.g.tokyonight_style = 'night'
   use 'folke/tokyonight.nvim'
+  -- config {{{
+  vim.g.tokyonight_style = 'night'
+  vim.g.tokyonight_terminal_colors = false
+  vim.g.tokyonight_italic_keywords = false
+  vim.g.tokyonight_transparent = true
+  vim.g.tokyonight_transparent_sidebar = true
+  vim.g.tokyonight_lualine_bold = true
   vim.cmd[[colorscheme tokyonight]]
+  -- }}}
 end)
 
 -- vim:foldmethod=marker:foldlevel=0
