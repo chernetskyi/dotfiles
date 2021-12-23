@@ -23,10 +23,10 @@ setopt autocd nobeep noextendedglob nohup nomatch nonotify
 # }}}
 
 # Completion {{{
-setopt bashautolist nolistambiguous
 fpath=(/usr/share/zsh/site-functions $fpath)
 autoload -Uz compinit
 zmodload zsh/complist
+zstyle ':autocomplete:*' insert-unambiguous yes
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
