@@ -18,6 +18,19 @@ fi
   && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.p10k.zsh"
 # }}}
 
+# Plugins {{{
+ZSH_PLUGIN_DIR="/usr/share/zsh/plugins"
+
+[[ -r "${ZSH_PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] \
+  && source "${ZSH_PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+  && export ZSH_AUTOSUGGEST_HISTORY_IGNORE=("cd *") \
+  && export ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=() \
+  && bindkey '^ ' autosuggest-accept
+
+[[ -r "${ZSH_PLUGIN_DIR}/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ]] \
+  && source "${ZSH_PLUGIN_DIR}/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+# }}}
+
 # zsh options {{{
 setopt autocd nobeep noextendedglob nohup nomatch nonotify
 # }}}
@@ -35,17 +48,6 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:*:*:*:descriptions' format '%F{yellow}%B-- %d --%b%f'
 compinit
 _comp_options+=(globdots)
-# }}}
-
-# Plugins {{{
-[[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] \
-  && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
-  && export ZSH_AUTOSUGGEST_HISTORY_IGNORE=("cd *") \
-  && export ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=() \
-  && bindkey '^ ' autosuggest-accept
-
-[[ -r /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]] \
-  && source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 # }}}
 
 # History {{{
