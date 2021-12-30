@@ -3,7 +3,7 @@ alias cp="cp -r"
 alias mkdir="mkdir -p"
 alias rm="rm -rf"
 alias scp="scp -r"
-alias sudo="sudo"
+alias sudo="sudo "
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 # }}}
 
