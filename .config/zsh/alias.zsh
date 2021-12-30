@@ -22,7 +22,7 @@ alias v="nvim"
 
 # Overwrite commands {{{
 exist ag        && alias ack="ag"
-exist bat       && alias cat="bat -pp --theme Nord"
+exist bat       && alias cat="bat -pp"
 exist curlie    && alias curl="curlie"
 exist dog       && alias dig="dog"
 exist exa       && alias ls="exa --group-directories-first --icons" \
