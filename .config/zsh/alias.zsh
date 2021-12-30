@@ -28,6 +28,9 @@ exist dog       && alias dig="dog"
 exist exa       && alias ls="exa --group-directories-first --icons" \
                 && alias tree="ls --tree"
 exist fd        && alias find="fd"
+exist nnn       && [[ -r "${ZDOTDIR}/nnn.zsh" ]] \
+                && source "${ZDOTDIR}/nnn.zsh" \
+                && bindkey -s "^N" "n^M"
 exist sd        && alias sed="sd"
 exist rg        && alias grep="rg"
 # }}}
