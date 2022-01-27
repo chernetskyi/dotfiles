@@ -32,7 +32,9 @@ vim.opt.wildmode = {'longest', 'full'}
 -- }}}
 
 -- Indentation {{{
+vim.opt.breakindent = true
 vim.opt.expandtab = true
+vim.opt.linebreak = true
 vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
