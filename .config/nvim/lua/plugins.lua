@@ -119,8 +119,6 @@ return require('packer').startup(function()
 
   use 'dstein64/vim-startuptime'
 
-  use {'ionide/Ionide-vim', run = 'make fsautocomplete'}
-
   use {'aserowy/tmux.nvim',
   -- config {{{
     config = function()
