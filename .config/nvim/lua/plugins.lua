@@ -98,7 +98,7 @@ return require('packer').startup(function()
         end}
   -- }}}
 
-  use {'andymass/vim-matchup', event = 'VimEnter',
+  use {'andymass/vim-matchup',
   -- config {{{
         config = function()
           vim.g.loaded_matchit = 1
