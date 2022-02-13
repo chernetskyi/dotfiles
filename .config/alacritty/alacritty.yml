@@ -7,6 +7,7 @@ env:
 window:
   title: Alacritty
   dynamic_title: false
+  opacity: 0.9
 # }}}
 
 # scrolling {{{
@@ -53,10 +54,6 @@ colors:
   indexed_colors:
     - { index: 16, color: '0xff9e64' }
     - { index: 17, color: '0xdb4b4b' }
-# }}}
-
-# background opacity {{{
-background_opacity: 0.9
 # }}}
 
 # cursor {{{
