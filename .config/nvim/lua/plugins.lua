@@ -88,13 +88,6 @@ return require('packer').startup(function()
         end}
   -- }}}
 
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
-  -- config {{{
-        config = function()
-          require('nvim-treesitter.configs').setup{highlight = {enable = true}}
-        end}
-  -- }}}
-
   use {'steelsojka/pears.nvim',
   --  config {{{
         config = function()
@@ -109,7 +102,6 @@ return require('packer').startup(function()
   -- config {{{
         config = function()
           vim.g.loaded_matchit = 1
-          require('nvim-treesitter.configs').setup{matchup = {enable = true}}
         end}
   -- }}}
 
