@@ -18,6 +18,8 @@ alias l="ls"
 alias tf="terraform"
 alias tg="terragrunt"
 alias v="nvim"
+alias :q="exit"
+alias :x="exit"
 # }}}
 
 # Overwrite commands {{{
