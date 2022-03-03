@@ -73,6 +73,8 @@ vim.api.nvim_set_keymap('n', 'J', 'mzJ`z', {noremap = true})
 
 vim.api.nvim_set_keymap('n', 'gf', ':edit <cfile><cr>', {noremap = true})
 
+vim.api.nvim_set_keymap('n', 'V', 'v$', {noremap = true})
+
 vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true})
 vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true})
 
