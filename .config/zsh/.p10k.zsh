@@ -51,7 +51,7 @@
     background_jobs         # presence of background jobs
     # direnv                # direnv status (https://direnv.net/)
     # asdf                  # asdf version manager (https://github.com/asdf-vm/asdf)
-    # virtualenv            # python virtual environment (https://docs.python.org/3/library/venv.html)
+    virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
     # anaconda              # conda environment (https://conda.io/)
     # pyenv                 # python environment (https://github.com/pyenv/pyenv)
     # goenv                 # go environment (https://github.com/syndbg/goenv)
@@ -77,7 +77,7 @@
     # haskell_stack         # haskell version from stack (https://haskellstack.org/)
     kubecontext             # current kubernetes context (https://kubernetes.io/)
     terraform               # terraform workspace (https://www.terraform.io)
-    # terraform_version     # terraform version (https://www.terraform.io)
+    terraform_version       # terraform version (https://www.terraform.io)
     aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
     # aws_eb_env            # aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/)
     # azure                 # azure account name (https://docs.microsoft.com/en-us/cli/azure)
@@ -87,7 +87,7 @@
     context                 # user@hostname
     # nordvpn               # nordvpn connection status, linux only (https://nordvpn.com/)
     # ranger                # ranger shell (https://github.com/ranger/ranger)
-    # nnn                   # nnn shell (https://github.com/jarun/nnn)
+    nnn                     # nnn shell (https://github.com/jarun/nnn)
     # xplr                  # xplr shell (https://github.com/sayanarijit/xplr)
     vim_shell               # vim shell indicator (:sh)
     # midnight_commander    # midnight commander shell (https://midnight-commander.org/)
