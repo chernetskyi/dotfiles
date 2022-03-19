@@ -2,11 +2,11 @@ exist () { command -v $1 &> /dev/null }
 
 # Launch tmux on startup {{{
 if exist tmux && [[ -z "${TMUX}" ]]; then
-  if ! tmux has-session -t main 2> /dev/null; then
-    tmux new-session -d -s main -n first
-    tmux new-window  -d -t main -n second
+  if ! tmux has-session -t startup 2> /dev/null; then
+    tmux new-session -s startup -n main
+  else
+    tmux attach-session -t startup
   fi
-  tmux attach-session -t main
 fi
 # }}}
 
