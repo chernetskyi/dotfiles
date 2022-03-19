@@ -23,7 +23,6 @@ alias :x="exit"
 # }}}
 
 # Overwrite commands {{{
-exist ag        && alias ack="ag"
 exist bat       && alias cat="bat -pp"
 exist curlie    && alias curl="curlie"
 exist dog       && alias dig="dog"
