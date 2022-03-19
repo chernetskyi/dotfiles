@@ -1,4 +1,7 @@
-exist () { command -v $1 &> /dev/null }
+# Helping functions {{{
+exist () { command -v "$1" &> /dev/null }
+sourcex () { source "${1}" 2> /dev/null || return 0 }
+# }}}
 
 # Launch tmux on startup {{{
 if exist tmux && [[ -z "${TMUX}" ]]; then
@@ -11,22 +14,19 @@ fi
 # }}}
 
 # Powerlevel10k prompt {{{
-[[ -r /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]] \
-  && source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme \
-  && source "${ZDOTDIR:-$HOME/.config/zsh}/.p10k.zsh"
+sourcex /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme \
+  && sourcex "${ZDOTDIR:-$HOME/.config/zsh}/.p10k.zsh"
 # }}}
 
 # Plugins {{{
 ZSH_PLUGIN_DIR="/usr/share/zsh/plugins"
 
-[[ -r "${ZSH_PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] \
-  && source "${ZSH_PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+sourcex "${ZSH_PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh" \
   && export ZSH_AUTOSUGGEST_HISTORY_IGNORE=("cd *") \
   && export ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=() \
   && bindkey '^ ' autosuggest-accept
 
-[[ -r "${ZSH_PLUGIN_DIR}/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ]] \
-  && source "${ZSH_PLUGIN_DIR}/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+sourcex "${ZSH_PLUGIN_DIR}/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 # }}}
 
 # zsh options {{{
@@ -69,11 +69,12 @@ bindkey "^[[B" down-line
 # }}} 
 
 # nnn {{{
-exist nnn && source "${ZDOTDIR:-$HOME/.config/zsh}/nnn.zsh"
+exist nnn \
+  && sourcex "${ZDOTDIR:-$HOME/.config/zsh}/nnn.zsh"
 # }}}
 
 # Aliases {{{
-source "${ZDOTDIR:-$HOME/.config/zsh}/alias.zsh"
+sourcex "${ZDOTDIR:-$HOME/.config/zsh}/alias.zsh"
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
