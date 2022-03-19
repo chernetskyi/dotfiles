@@ -4,7 +4,7 @@ alias mkdir="mkdir -p"
 alias rm="rm -rf"
 alias scp="scp -r"
 alias sudo="sudo "
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias wget='wget --hsts-file="${XDG_CACHE_HOME:-$HOME/.local/share}/wget-hsts"'
 # }}}
 
 # Shorten commands {{{
@@ -23,17 +23,14 @@ alias :x="exit"
 # }}}
 
 # Overwrite commands {{{
-exist bat       && alias cat="bat -pp"
-exist curlie    && alias curl="curlie"
-exist dog       && alias dig="dog"
-exist exa       && alias ls="exa --group-directories-first --icons" \
-                && alias tree="ls --tree"
-exist fd        && alias find="fd"
-exist nnn       && [[ -r "${ZDOTDIR}/nnn.zsh" ]] \
-                && source "${ZDOTDIR}/nnn.zsh" \
-                && bindkey -s "^N" "n^M"
-exist sd        && alias sed="sd"
-exist rg        && alias grep="rg"
+exist bat    && alias cat="bat -pp"
+exist curlie && alias curl="curlie"
+exist dog    && alias dig="dog"
+exist exa    && alias ls="exa --group-directories-first --icons" \
+             && alias tree="ls --tree"
+exist fd     && alias find="fd"
+exist sd     && alias sed="sd"
+exist rg     && alias grep="rg"
 # }}}
 
 # Dotfiles management {{{

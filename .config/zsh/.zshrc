@@ -12,10 +12,8 @@ fi
 
 # Powerlevel10k prompt {{{
 [[ -r /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]] \
-  && source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-[[ -r "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.p10k.zsh" ]] \
-  && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.p10k.zsh"
+  && source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme \
+  && source "${ZDOTDIR:-$HOME/.config/zsh}/.p10k.zsh"
 # }}}
 
 # Plugins {{{
@@ -70,9 +68,12 @@ bindkey "^[[A" up-line
 bindkey "^[[B" down-line
 # }}} 
 
+# nnn {{{
+exist nnn && source "${ZDOTDIR:-$HOME/.config/zsh}/nnn.zsh"
+# }}}
+
 # Aliases {{{
-[[ -r "${ZDOTDIR}/alias.zsh" ]] \
-  && source "${ZDOTDIR}/alias.zsh"
+source "${ZDOTDIR:-$HOME/.config/zsh}/alias.zsh"
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
