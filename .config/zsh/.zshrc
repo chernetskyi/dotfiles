@@ -38,13 +38,14 @@ fpath=(/usr/share/zsh/site-functions $fpath)
 autoload -Uz compinit
 zmodload zsh/complist
 zstyle ':autocomplete:*' insert-unambiguous yes
+zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:*:*:*:descriptions' format '%F{yellow}%B-- %d --%b%f'
-compinit
+compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-${ZSH_VERSION}"
 _comp_options+=(globdots)
 # }}}
 
