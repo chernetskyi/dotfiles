@@ -1,4 +1,5 @@
 # Change default behavior with flags {{{
+alias cal="cal -m"
 alias cp="cp -r"
 alias mkdir="mkdir -p"
 alias rm="rm -rf"
