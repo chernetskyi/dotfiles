@@ -24,7 +24,7 @@ alias :x="exit"
 # }}}
 
 # Overwrite commands {{{
-exist bat    && alias cat="bat -pp"
+exist bat    && alias cat="bat"
 exist curlie && alias curl="curlie"
 exist dog    && alias dig="dog"
 exist exa    && alias ls="exa --group-directories-first --icons" \
