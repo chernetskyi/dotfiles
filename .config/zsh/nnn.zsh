@@ -10,7 +10,7 @@ n ()
     return
   fi
 
-  nnn -einU "$@"
+  nnn -eiU "$@"
 
   if [ -f "$NNN_TMPFILE" ]; then
     . "$NNN_TMPFILE"
