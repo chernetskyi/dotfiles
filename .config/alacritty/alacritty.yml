@@ -5,9 +5,9 @@ env:
 
 # window {{{
 window:
-  title: Alacritty
-  dynamic_title: false
   opacity: 0.9
+  dynamic_title: false
+  startup_mode: Maximized
 # }}}
 
 # scrolling {{{
