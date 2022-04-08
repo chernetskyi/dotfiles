@@ -148,7 +148,6 @@ return require('packer').startup(function()
         config = function()
           vim.g.nvim_tree_add_trailing = 1
           require('nvim-tree').setup {
-            auto_close = true,
             open_on_tab = true,
             update_focused_file = { enable = true },
             diagnostics = { enable = true },
