@@ -1,0 +1,6 @@
+#!/bin/sh
+set -euo pipefail
+
+OPACITY="${1:-0.9}"
+
+sd '^  opacity:.*' "  opacity: ${OPACITY}" "${XDG_CONFIG_HOME}/alacritty/alacritty.yml"
