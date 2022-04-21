@@ -1,5 +1,5 @@
 # Helping functions {{{
-exist () { command -v "$1" &> /dev/null }
+exist () { command -v "${1}" &> /dev/null }
 sourcex () { source "${1}" 2> /dev/null || return 0 }
 # }}}
 
@@ -70,8 +70,7 @@ bindkey "^[[B" down-line
 # }}} 
 
 # nnn {{{
-exist nnn \
-  && sourcex "${ZDOTDIR:-$HOME/.config/zsh}/nnn.zsh"
+exist nnn && sourcex "${ZDOTDIR:-$HOME/.config/zsh}/nnn.zsh"
 # }}}
 
 # Aliases {{{
