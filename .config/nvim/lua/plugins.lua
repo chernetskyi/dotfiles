@@ -165,6 +165,7 @@ return require('packer').startup(function()
             }
           }
           vim.api.nvim_set_keymap('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', {noremap = true})
+          vim.cmd[[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]]
         end}
   -- }}}
 
