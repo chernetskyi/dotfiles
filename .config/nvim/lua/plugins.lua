@@ -119,28 +119,6 @@ return require('packer').startup(function()
     end}
   -- }}}
 
-  use {'tversteeg/registers.nvim',
-  -- config {{{
-        config = function()
-          vim.g.registers_tab_symbol = '-->'
-          vim.g.registers_space_symbol = '·'
-          vim.g.registers_show_empty_registers = 0
-          vim.g.registers_hide_only_whitespace = 1
-          vim.g.registers_window_border = 'single'
-        end}
-  -- }}}
-
-  use {'chentau/marks.nvim',
-  -- config {{{
-        config = function()
-          require('marks').setup {
-            default_mappings = false,
-            builtin_marks = {'.', '"', '0', '\''},
-            excluded_filetypes = {'NvimTree'}
-          }
-        end}
-  -- }}}
-
   use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
