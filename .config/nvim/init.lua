@@ -1,23 +1,18 @@
 require 'plugins'
 
--- Colors {{{
-vim.opt.termguicolors = true
--- }}}
-
 -- UI {{{ 
 vim.opt.cursorline = true
+vim.opt.laststatus = 3
 vim.opt.lazyredraw = true
 vim.opt.showmode = false
+vim.opt.termguicolors = true
 
 vim.opt.number = true
 vim.opt.numberwidth = 1
-vim.cmd[[
-  augroup toggle-numbers
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
-    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
-  augroup END
-]]
+
+local toggle_numbers_aug = vim.api.nvim_create_augroup('ToggleRelativeNumber', { clear = true })
+vim.api.nvim_create_autocmd('InsertLeave', {group = toggle_numbers_aug, pattern = '*', callback = function() vim.opt.relativenumber = true end})
+vim.api.nvim_create_autocmd('InsertEnter', {group = toggle_numbers_aug, pattern = '*', callback = function() vim.opt.relativenumber = false end})
 
 vim.opt.list = true
 vim.opt.listchars = {tab = '-->', space = '·'}
@@ -50,13 +45,10 @@ vim.opt.foldmethod = 'indent'
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.cmd[[
-  augroup vimrc-incsearch-highlight
-    autocmd!
-    autocmd CmdlineEnter /,\? :set hlsearch
-    autocmd CmdlineLeave /,\? :set nohlsearch
-  augroup END
-]]
+
+local toogle_search_aug = vim.api.nvim_create_augroup('ToogleIncSearchHighlight', { clear = true })
+vim.api.nvim_create_autocmd('CmdLineEnter', {group = toogle_search_aug, pattern = '*', callback = function() vim.opt.hlsearch = true end})
+vim.api.nvim_create_autocmd('CmdLineLeave', {group = toogle_search_aug, pattern = '*', callback = function() vim.opt.hlsearch = false end})
 -- }}}
 
 -- History {{{
@@ -67,34 +59,29 @@ vim.opt.writebackup = false
 -- }}}
 
 -- Key mappings {{{
-vim.api.nvim_set_keymap('n', 'n', 'nzzzv', {noremap = true})
-vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', {noremap = true})
-vim.api.nvim_set_keymap('n', 'J', 'mzJ`z', {noremap = true})
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
+vim.keymap.set('n', 'J', 'mzJ`zz')
 
-vim.api.nvim_set_keymap('n', 'gf', ':edit <cfile><cr>', {noremap = true})
+vim.keymap.set('n', 'gf', ':edit <cfile><cr>')
 
-vim.api.nvim_set_keymap('n', 'V', 'v$', {noremap = true})
+vim.keymap.set('n', 'V', 'v$')
 
-vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true})
-vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true})
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
 
-vim.api.nvim_set_keymap('v', 'y', 'myy`y', {noremap = true})
-vim.api.nvim_set_keymap('v', 'Y', 'myY`y', {noremap = true})
+vim.keymap.set('v', 'y', 'myy`y')
+vim.keymap.set('v', 'Y', 'myY`y')
 
-vim.cmd[[
-  noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-  noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-]]
+vim.keymap.set('', 'j', function() return vim.v.count == 0 and 'gj' or 'j' end, { expr = true })
+vim.keymap.set('', 'k', function() return vim.v.count == 0 and 'gk' or 'k' end, { expr = true })
 
-local breakpoints = {'.', ',', '!', '?', '{', '}', '[', ']', '(', ')', '<', '>', '=', ':', ':'}
-for _, breakpoint in ipairs(breakpoints) do
-  vim.api.nvim_set_keymap('i', breakpoint, breakpoint .. '<c-g>u', {noremap = true})
+for _, breakpoint in ipairs({'.', ',', '!', '?', '{', '}', '[', ']', '(', ')', '<', '>', '=', ':', ':'}) do
+  vim.keymap.set('i', breakpoint, breakpoint .. '<c-g>u')
 end
 
-local arrows = {'<Up>', '<Down>', '<Left>', '<Right>'}
-for _, arrow in ipairs(arrows) do
-  vim.api.nvim_set_keymap('', arrow, '', {noremap = true})
-  vim.api.nvim_set_keymap('i', arrow, '', {noremap = true})
+for _, arrow in ipairs({'<Up>', '<Down>', '<Left>', '<Right>'}) do
+  vim.keymap.set({'', 'i'}, arrow, '')
 end
 -- }}}
 
@@ -102,12 +89,8 @@ end
 vim.opt.confirm = true
 vim.opt.modelines = 1
 vim.opt.mouse = 'a'
-vim.cmd[[
-  augroup lua-highlight
-    autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
-  augroup END
-]]
+
+vim.api.nvim_create_autocmd('TextYankPost', {group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }), pattern = '*', callback = function() require('vim.highlight').on_yank() end})
 -- }}}
 
 -- vim:foldmethod=marker:foldlevel=0

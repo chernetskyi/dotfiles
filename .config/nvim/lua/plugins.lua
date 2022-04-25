@@ -2,20 +2,15 @@ return require('packer').startup(function()
   use {'wbthomason/packer.nvim',
   -- config {{{
         config = function()
-          vim.cmd[[
-            augroup recompile-packer-on-save
-              autocmd!
-              autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-            augroup end
-          ]]
+          vim.api.nvim_create_autocmd('BufWritePost', {group = vim.api.nvim_create_augroup('PackerCompileOnSave', { clear = true }), pattern = 'plugins.lua', command = 'source <afile> | PackerCompile'})
         end}
   -- }}}
 
   use {'github/copilot.vim',
   -- config {{{
         config = function()
-          vim.cmd[[imap <silent><script><expr> <C-Space> copilot#Accept("")]]
           vim.g.copilot_no_tab_map = true
+          vim.keymap.set('i', 'C-Space', 'copilot#Accept("")', { expr = true, script = true, silent = true })
         end}
   -- }}}
 
@@ -77,19 +72,14 @@ return require('packer').startup(function()
             }
           })
 
-          cmp.setup.cmdline('/', {
-            sources = {{ name = 'buffer'}}
-          })
-
-          cmp.setup.cmdline(':', {
-            sources = cmp.config.sources({{ name = 'path' }}, {{ name = 'cmdline' }})
-          })
+          cmp.setup.cmdline('/', { sources = {{ name = 'buffer'}} })
+          cmp.setup.cmdline(':', { sources = cmp.config.sources({{ name = 'path' }}, {{ name = 'cmdline' }}) })
 
           local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-          local servers = { 'bashls', 'cssls', 'dockerls', 'html', 'jsonls', 'pylsp', 'sqlls', 'vimls', 'yamlls' }
-          for _, lsp in ipairs(servers) do
+          for _, lsp in ipairs({'bashls', 'cssls', 'dockerls', 'html', 'jsonls', 'pylsp', 'sqlls', 'vimls', 'yamlls'}) do
             require('lspconfig')[lsp].setup{ capabilities = capabilities }
           end
+
           require('lspconfig').cssls.setup{cmd = {'vscode-css-languageserver', '--stdio'}}
           require('lspconfig').html.setup{cmd = {'vscode-html-languageserver', '--stdio'}}
           require('lspconfig').jsonls.setup{cmd = {'vscode-json-languageserver', '--stdio'}}
@@ -122,9 +112,9 @@ return require('packer').startup(function()
   use {'aserowy/tmux.nvim',
   -- config {{{
     config = function()
-      require('tmux').setup{
-        navigation = {enable_default_keybindings = true},
-        resize = {enable_default_keybindings = true}
+      require('tmux').setup {
+        navigation = { enable_default_keybindings = true },
+        resize = { enable_default_keybindings = true }
       }
     end}
   -- }}}
@@ -155,17 +145,20 @@ return require('packer').startup(function()
   -- config {{{
         config = function()
           vim.g.nvim_tree_add_trailing = 1
+          vim.g.nvim_tree_group_empty = 1
           require('nvim-tree').setup {
             open_on_tab = true,
             update_focused_file = { enable = true },
             diagnostics = { enable = true },
             view = {
               auto_resize = true,
-              number = true
-            }
+              number = true,
+              signcolumn = 'no'
+            },
+            renderer = { indent_markers = { enable = true } }
           }
-          vim.api.nvim_set_keymap('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', {noremap = true})
-          vim.cmd[[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]]
+          vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', { silent = true })
+          vim.api.nvim_create_autocmd('BufEnter', {pattern = '*', command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif", nested = true})
         end}
   -- }}}
 
