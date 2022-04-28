@@ -10,7 +10,7 @@ return require('packer').startup(function()
   -- config {{{
         config = function()
           vim.g.copilot_no_tab_map = true
-          vim.keymap.set('i', 'C-Space', 'copilot#Accept("")', { expr = true, script = true, silent = true })
+          vim.keymap.set('i', '<C-Space>', 'copilot#Accept("")', { expr = true, script = true, silent = true })
         end}
   -- }}}
 
