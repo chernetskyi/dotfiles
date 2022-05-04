@@ -52,4 +52,14 @@
     rmt = remote
 ; }}}
 
+; credential helpers {{{
+[credential "https://github.com"]
+  helper = 
+  helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+  helper = 
+  helper = !/usr/bin/gh auth git-credential
+; }}}
+
 ; vim:foldmethod=marker:foldlevel=0
