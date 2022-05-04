@@ -14,7 +14,7 @@ return require('packer').startup(function()
         end}
   -- }}}
 
-  use {'hrsh7th/nvim-cmp', requires = {'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-vsnip', 'hrsh7th/vim-vsnip', 'hrsh7th/cmp-cmdline'},
+  use {'hrsh7th/nvim-cmp', requires = {'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-vsnip', 'L3MON4D3/LuaSnip', 'hrsh7th/cmp-cmdline', 'petertriho/cmp-git'},
   -- config {{{
         config = function()
           vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
@@ -51,7 +51,7 @@ return require('packer').startup(function()
           cmp.setup({
             snippet = {
               expand = function(args)
-                vim.fn['vsnip#anonymous'](args.body)
+                require('luasnip').lsp_expand(args.body)
               end
             },
             mapping = {
@@ -60,7 +60,7 @@ return require('packer').startup(function()
             },
             sources = cmp.config.sources({
               { name = 'nvim_lsp' },
-              { name = 'vsnip' },
+              { name = 'luasnip' },
             }, {
               { name = 'buffer' },
             }),
@@ -72,8 +72,10 @@ return require('packer').startup(function()
             }
           })
 
-          cmp.setup.cmdline('/', { sources = {{ name = 'buffer'}} })
-          cmp.setup.cmdline(':', { sources = cmp.config.sources({{ name = 'path' }}, {{ name = 'cmdline' }}) })
+          cmp.setup.filetype('gitcommit', { sources = cmp.config.sources({ { name = 'cmp_git' }, }, { { name = 'buffer' }, }) })
+
+          cmp.setup.cmdline('/', { mapping = cmp.mapping.preset.cmdline(), sources = {{ name = 'buffer'}} })
+          cmp.setup.cmdline(':', { mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{ name = 'path' }}, {{ name = 'cmdline' }}) })
 
           local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
           for _, lsp in ipairs({'bashls', 'cssls', 'dockerls', 'html', 'jsonls', 'pylsp', 'sqlls', 'vimls', 'yamlls'}) do
