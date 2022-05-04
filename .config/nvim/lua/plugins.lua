@@ -129,7 +129,6 @@ return require('packer').startup(function()
             update_focused_file = { enable = true },
             diagnostics = { enable = true },
             view = {
-              auto_resize = true,
               number = true,
               signcolumn = 'no'
             },
