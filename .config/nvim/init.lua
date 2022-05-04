@@ -58,7 +58,14 @@ vim.opt.undofile = true
 vim.opt.writebackup = false
 -- }}}
 
+-- Spelling {{{
+vim.opt.spell = true
+vim.opt.spelllang = 'en_us'
+-- }}}
+
 -- Key mappings {{{
+vim.keymap.set('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u')
+
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 vim.keymap.set('n', 'J', 'mzJ`z')
