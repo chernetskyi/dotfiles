@@ -61,7 +61,7 @@ vim.opt.writebackup = false
 -- Key mappings {{{
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
-vim.keymap.set('n', 'J', 'mzJ`zz')
+vim.keymap.set('n', 'J', 'mzJ`z')
 
 vim.keymap.set('n', 'gf', ':edit <cfile><cr>')
 
