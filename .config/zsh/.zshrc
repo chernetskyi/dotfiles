@@ -70,7 +70,7 @@ bindkey "^[[B" down-line
 # }}} 
 
 # nnn {{{
-exist nnn && sourcex "${ZDOTDIR:-$HOME/.config/zsh}/nnn.zsh"
+exist nnn && sourcex "${XDG_CONFIG_HOME:-$HOME/.config}/nnn/nnn.zsh"
 # }}}
 
 # Aliases {{{

@@ -1,4 +1,5 @@
 # Environment variables {{{
+export NNN_PLUG="p:preview-tui"
 export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/lastd"
 # }}}
 
@@ -10,7 +11,7 @@ n ()
     return
   fi
 
-  nnn -eiU "$@"
+  BAT_THEME=base16-256 nnn -aeiU -P p "$@"
 
   if [ -f "$NNN_TMPFILE" ]; then
     . "$NNN_TMPFILE"

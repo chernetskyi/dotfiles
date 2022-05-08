@@ -11,7 +11,7 @@ export XDG_CONFIG_DIRS="/etc/xdg/"
 export BROWSER=firefox
 export EDITOR=nvim
 export VISUAL=nvim
-export PAGER=less
+export PAGER="less -FfR"
 export LESSHISTFILE=-
 export SHELL=zsh
 # }}}
