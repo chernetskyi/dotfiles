@@ -9,6 +9,7 @@ vim.opt.termguicolors = true
 
 vim.opt.number = true
 vim.opt.numberwidth = 1
+vim.opt.relativenumber = true
 
 local toggle_numbers_aug = vim.api.nvim_create_augroup('ToggleRelativeNumber', { clear = true })
 vim.api.nvim_create_autocmd('InsertLeave', {group = toggle_numbers_aug, pattern = '*', callback = function() vim.opt.relativenumber = true end})
