@@ -1,4 +1,4 @@
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim',
   -- config {{{
         config = function()
@@ -72,13 +72,26 @@ return require('packer').startup(function()
           cmp.setup.cmdline(':', { mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{ name = 'path' }}, {{ name = 'cmdline' }}) })
 
           local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-          for _, lsp in ipairs({'bashls', 'cssls', 'dockerls', 'html', 'jsonls', 'pylsp', 'sqlls', 'vimls', 'yamlls'}) do
+          for _, lsp in ipairs({'bashls', 'cssls', 'dockerls', 'html', 'jsonls', 'pylsp', 'sumneko_lua', 'yamlls'}) do
             require('lspconfig')[lsp].setup{ capabilities = capabilities }
           end
 
-          require('lspconfig').cssls.setup{cmd = {'vscode-css-languageserver', '--stdio'}}
-          require('lspconfig').html.setup{cmd = {'vscode-html-languageserver', '--stdio'}}
-          require('lspconfig').jsonls.setup{cmd = {'vscode-json-languageserver', '--stdio'}}
+          -- Zsh support
+          require('lspconfig').bashls.setup{
+            cmd_env = { GLOB_PATTERN = '*@(.sh|.inc|.bash|.zsh|.command)' },
+            filetypes = { 'sh', 'bash', 'zsh' }
+          }
+          -- Neovim support
+          require('lspconfig').sumneko_lua.setup{
+            settings = {
+              Lua = {
+                runtime = { version = 'LuaJIT' },
+                diagnostics = { globals = {'vim'} },
+                workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+                telemetry = { enable = false }
+              }
+            }
+          }
         end}
   -- }}}
 
@@ -145,7 +158,7 @@ return require('packer').startup(function()
             extensions = {'fugitive', 'nvim-tree'}
           }
         end}
-  --  }}} 
+  --  }}}
 
   use 'folke/tokyonight.nvim'
   -- config {{{
