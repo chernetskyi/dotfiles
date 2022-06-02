@@ -1,7 +1,0 @@
-#!/bin/sh
-set -euo pipefail
-
-MONITOR="${1:-eDP}"
-DEVICE="$(xinput --list | grep 'ELAN9008:00 04F3:2C82   ' | cut -d'=' -f2 | cut -f1)"
-
-xinput map-to-output "${DEVICE}" "${MONITOR}"
