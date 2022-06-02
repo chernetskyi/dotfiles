@@ -131,8 +131,6 @@ return require('packer').startup(function(use)
   use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
-          vim.g.nvim_tree_add_trailing = 1
-          vim.g.nvim_tree_group_empty = 1
           require('nvim-tree').setup {
             open_on_tab = true,
             update_focused_file = { enable = true },
@@ -141,7 +139,11 @@ return require('packer').startup(function(use)
               number = true,
               signcolumn = 'no'
             },
-            renderer = { indent_markers = { enable = true } }
+            renderer = {
+              add_trailing = true,
+              group_empty = true,
+              indent_markers = { enable = true }
+            }
           }
           vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', { silent = true })
           vim.api.nvim_create_autocmd('BufEnter', {pattern = '*', command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif", nested = true})
