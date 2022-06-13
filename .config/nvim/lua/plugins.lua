@@ -14,10 +14,10 @@ return require('packer').startup(function(use)
         end}
   -- }}}
 
-  use {'hrsh7th/nvim-cmp', requires = {'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline', 'petertriho/cmp-git'},
+  use {'hrsh7th/nvim-cmp', requires = { 'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline', 'petertriho/cmp-git' },
   -- config {{{
         config = function()
-          vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+          vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
           local kind_icons = {
             Text = '',
@@ -48,7 +48,7 @@ return require('packer').startup(function(use)
           }
 
           local cmp = require 'cmp'
-          cmp.setup({
+          cmp.setup{
             mapping = {
               ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
               ['<CR>'] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace})
@@ -59,20 +59,20 @@ return require('packer').startup(function(use)
               { name = 'buffer' },
             }),
             formatting = {
-              format = function(entry, vim_item)
+              format = function(_, vim_item)
                 vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
                 return vim_item
               end
             }
-          })
+          }
 
-          cmp.setup.filetype('gitcommit', { sources = cmp.config.sources({ { name = 'cmp_git' }, }, { { name = 'buffer' }, }) })
+          cmp.setup.filetype('gitcommit', { sources = cmp.config.sources({{ name = 'cmp_git' }}, {{ name = 'buffer' }}) })
 
-          cmp.setup.cmdline('/', { mapping = cmp.mapping.preset.cmdline(), sources = {{ name = 'buffer'}} })
+          cmp.setup.cmdline('/', { mapping = cmp.mapping.preset.cmdline(), sources = {{ name = 'buffer' }} })
           cmp.setup.cmdline(':', { mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{ name = 'path' }}, {{ name = 'cmdline' }}) })
 
           local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-          for _, lsp in ipairs({'bashls', 'cssls', 'dockerls', 'html', 'jsonls', 'pylsp', 'sumneko_lua', 'yamlls'}) do
+          for _, lsp in ipairs({ 'bashls', 'cssls', 'dockerls', 'html', 'jsonls', 'pylsp', 'sumneko_lua', 'yamlls' }) do
             require('lspconfig')[lsp].setup{ capabilities = capabilities }
           end
 
@@ -86,7 +86,7 @@ return require('packer').startup(function(use)
             settings = {
               Lua = {
                 runtime = { version = 'LuaJIT' },
-                diagnostics = { globals = {'vim'} },
+                diagnostics = { globals = { 'vim' } },
                 workspace = { library = vim.api.nvim_get_runtime_file('', true) },
                 telemetry = { enable = false }
               }
@@ -98,7 +98,7 @@ return require('packer').startup(function(use)
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
   -- config {{{
         config = function()
-          require'nvim-treesitter.configs'.setup {
+          require'nvim-treesitter.configs'.setup{
             ensure_installed = { 'bash', 'comment', 'css', 'dockerfile', 'hcl', 'help', 'html', 'http', 'jsdoc', 'json', 'json5', 'jsonc', 'lua', 'python', 'regex', 'scss', 'yaml' },
             highlight = { enable = true }
           }
@@ -131,7 +131,7 @@ return require('packer').startup(function(use)
   use {'aserowy/tmux.nvim',
   -- config {{{
     config = function()
-      require('tmux').setup {
+      require('tmux').setup{
         navigation = { enable_default_keybindings = true },
         resize = { enable_default_keybindings = true }
       }
@@ -141,7 +141,7 @@ return require('packer').startup(function(use)
   use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
-          require('nvim-tree').setup {
+          require('nvim-tree').setup{
             open_on_tab = true,
             update_focused_file = { enable = true },
             diagnostics = { enable = true },
@@ -163,11 +163,14 @@ return require('packer').startup(function(use)
   use {'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
-          require('lualine').setup {
-            options = {theme = 'tokyonight'},
-            sections = {lualine_x = {'filetype'}},
-            tabline = {lualine_a = {'buffers'}, lualine_z = {'tabs'}},
-            extensions = {'fugitive', 'nvim-tree'}
+          require('lualine').setup{
+            options = { theme = 'tokyonight' },
+            sections = { lualine_x = { 'filetype' } },
+            tabline = {
+              lualine_a = { 'buffers' },
+              lualine_z = {'tabs'}
+            },
+            extensions = { 'fugitive', 'nvim-tree' }
           }
         end}
   --  }}}
