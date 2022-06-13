@@ -95,6 +95,16 @@ return require('packer').startup(function(use)
         end}
   -- }}}
 
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
+  -- config {{{
+        config = function()
+          require'nvim-treesitter.configs'.setup {
+            ensure_installed = { 'bash', 'comment', 'css', 'dockerfile', 'hcl', 'help', 'html', 'http', 'jsdoc', 'json', 'json5', 'jsonc', 'lua', 'python', 'regex', 'scss', 'yaml' },
+            highlight = { enable = true }
+          }
+        end}
+  -- }}}
+
   use {'steelsojka/pears.nvim',
   --  config {{{
         config = function()
