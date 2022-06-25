@@ -29,27 +29,35 @@
     f   = fetch
     i   = init
     l   = log --decorate --graph --format='%Cred%h %Cgreen%cn %Cblue%cr %Creset%s'
-    m   = merge --squash
+    m   = merge
     r   = rebase
     s   = status --short
     t   = tag
     bl  = blame
+    bs  = bisect
     cf  = config
     ch  = checkout
     cl  = clone
     cp  = cherry-pick
+    dd  = diff --staged
     dl  = clone --depth 1 --single-branch --branch
+    ms  = merge --squash
     pl  = pull --ff-only
     ps  = push
     rb  = rebase
+    rh  = reset --hard
     rl  = reflog
     rm  = rm -r
+    rs  = reset --soft
     rv  = revert
     sb  = clone --single-branch --branch
+    sh  = show
     sl  = shortlog
     st  = stash
     sw  = switch
+    pop = stash pop
     rmt = remote
+    rst = restore
 ; }}}
 
 ; credential helpers {{{
