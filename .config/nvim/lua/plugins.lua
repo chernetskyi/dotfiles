@@ -101,6 +101,19 @@ return require('packer').startup(function(use)
         end}
   -- }}}
 
+  use {'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' },
+  -- config {{{
+        config = function()
+          require("null-ls").setup{
+            sources = {
+              require("null-ls").builtins.diagnostics.vale.with{
+                filetypes = { 'text', 'markdown', 'html', 'tex' },
+              },
+            },
+          }
+        end}
+  -- }}}
+
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
   -- config {{{
         config = function()
