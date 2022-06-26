@@ -104,13 +104,18 @@ return require('packer').startup(function(use)
   use {'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' },
   -- config {{{
         config = function()
-          require("null-ls").setup{
-            sources = {
-              require("null-ls").builtins.diagnostics.vale.with{
-                filetypes = { 'text', 'markdown', 'html', 'tex' },
-              },
-            },
+          local null_ls = require('null-ls')
+
+          local sources = {
+              null_ls.builtins.diagnostics.shellcheck.with{ filetypes = { 'sh', 'zsh', 'bash' } },
+              null_ls.builtins.diagnostics.vale.with{ filetypes = { 'text', 'markdown', 'html', 'tex' } },
+              null_ls.builtins.diagnostics.zsh,
+              null_ls.builtins.formatting.jq,
+              null_ls.builtins.formatting.terraform_fmt,
           }
+
+          null_ls.setup{ sources = sources }
+
         end}
   -- }}}
 
