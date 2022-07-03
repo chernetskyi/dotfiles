@@ -67,7 +67,7 @@ bindkey -v "^[[4~" end-of-line
 
 bindkey "^[[A" up-line
 bindkey "^[[B" down-line
-# }}} 
+# }}}
 
 # nnn {{{
 exist nnn && sourcex "${XDG_CONFIG_HOME:-$HOME/.config}/nnn/nnn.zsh"
