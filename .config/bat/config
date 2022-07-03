@@ -1,7 +1,3 @@
-# theme {{{
---theme=base16-256
-# }}}
-
 # style {{{
 --style=plain
 # }}}

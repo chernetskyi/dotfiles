@@ -154,7 +154,7 @@ return require('packer').startup(function(use)
 
   use {'aserowy/tmux.nvim',
   -- config {{{
-    config = function()
+      config = function()
       require('tmux').setup{
         navigation = { enable_default_keybindings = true },
         resize = { enable_default_keybindings = true }
@@ -184,31 +184,38 @@ return require('packer').startup(function(use)
         end}
   -- }}}
 
+  use {'rose-pine/neovim', as = 'rose-pine',
+  -- config {{{
+        config = function()
+          require('rose-pine').setup{
+            disable_background = true,
+            disable_float_background = true,
+            disable_italics = true,
+
+            highlight_groups = {
+              Folded = { fg = 'subtle' },
+              gitcommitSummary = { fg = 'text' },
+            }
+          }
+        vim.cmd[[colorscheme rose-pine]]
+        end}
+  -- }}}
+
   use {'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
           require('lualine').setup{
-            options = { theme = 'tokyonight' },
+            options = { globalstatus = false },
             sections = { lualine_x = { 'filetype' } },
             tabline = {
               lualine_a = { 'buffers' },
-              lualine_z = {'tabs'}
+              lualine_z = { 'tabs' }
             },
             extensions = { 'fugitive', 'nvim-tree' }
           }
         end}
   --  }}}
 
-  use 'folke/tokyonight.nvim'
-  -- config {{{
-  vim.g.tokyonight_style = 'night'
-  vim.g.tokyonight_terminal_colors = false
-  vim.g.tokyonight_italic_keywords = false
-  vim.g.tokyonight_transparent = true
-  vim.g.tokyonight_transparent_sidebar = true
-  vim.g.tokyonight_lualine_bold = true
-  vim.cmd[[colorscheme tokyonight]]
-  -- }}}
 end)
 
 -- vim:foldmethod=marker:foldlevel=0

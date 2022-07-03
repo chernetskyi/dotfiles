@@ -25,8 +25,6 @@ sourcex "${ZSH_PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh" \
   && export ZSH_AUTOSUGGEST_HISTORY_IGNORE=("cd *") \
   && export ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=() \
   && bindkey '^ ' autosuggest-accept
-
-sourcex "${ZSH_PLUGIN_DIR}/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 # }}}
 
 # zsh options {{{
