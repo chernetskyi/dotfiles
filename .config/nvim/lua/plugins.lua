@@ -177,6 +177,11 @@ return require('packer').startup(function(use)
               add_trailing = true,
               group_empty = true,
               indent_markers = { enable = true }
+            },
+            actions = {
+              open_file = {
+                window_picker = { enable = false }
+              }
             }
           }
           vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', { silent = true })
