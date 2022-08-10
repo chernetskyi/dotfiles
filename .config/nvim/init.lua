@@ -80,10 +80,6 @@ vim.keymap.set('', 'k', function() return vim.v.count == 0 and 'gk' or 'k' end, 
 for _, breakpoint in ipairs({'.', ',', '!', '?', '{', '}', '[', ']', '(', ')', '<', '>', '=', ':', ':'}) do
   vim.keymap.set('i', breakpoint, breakpoint .. '<c-g>u')
 end
-
-for _, arrow in ipairs({'<Up>', '<Down>', '<Left>', '<Right>'}) do
-  vim.keymap.set({'', 'i'}, arrow, '')
-end
 -- }}}
 
 -- Misc {{{

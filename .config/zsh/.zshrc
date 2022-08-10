@@ -62,9 +62,6 @@ bindkey -v "^?" backward-delete-char
 bindkey -v "\e[3~" delete-char
 bindkey -v "^[[1~" beginning-of-line
 bindkey -v "^[[4~" end-of-line
-
-bindkey "^[[A" up-line
-bindkey "^[[B" down-line
 # }}}
 
 # nnn {{{
