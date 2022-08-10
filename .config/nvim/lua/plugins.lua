@@ -190,6 +190,7 @@ return require('packer').startup(function(use)
             highlight_groups = {
               Folded = { fg = 'subtle' },
               gitcommitSummary = { fg = 'text' },
+              TSPunctDelimeter = { fg = 'text' },
             }
           }
         vim.cmd[[colorscheme rose-pine]]
