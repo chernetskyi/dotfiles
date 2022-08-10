@@ -19,9 +19,7 @@ sourcex /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme \
 # }}}
 
 # Plugins {{{
-ZSH_PLUGIN_DIR="/usr/share/zsh/plugins"
-
-sourcex "${ZSH_PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+sourcex "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" \
   && export ZSH_AUTOSUGGEST_HISTORY_IGNORE=("cd *") \
   && export ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=() \
   && bindkey '^ ' autosuggest-accept
@@ -42,7 +40,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' squeeze-slashes true
-zstyle ':completion:*:*:*:*:descriptions' format '%F{yellow}%B-- %d --%b%f'
+zstyle ':completion:*:*:*:*:descriptions' format '%F{yellow}%B%d:%b%f'
 compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-${ZSH_VERSION}"
 _comp_options+=(globdots)
 # }}}
