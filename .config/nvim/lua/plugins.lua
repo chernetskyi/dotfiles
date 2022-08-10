@@ -152,16 +152,6 @@ return require('packer').startup(function(use)
 
   use 'dstein64/vim-startuptime'
 
-  use {'aserowy/tmux.nvim',
-  -- config {{{
-      config = function()
-      require('tmux').setup{
-        navigation = { enable_default_keybindings = true },
-        resize = { enable_default_keybindings = true }
-      }
-    end}
-  -- }}}
-
   use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
