@@ -11,29 +11,20 @@ alias wget='wget --hsts-file="${XDG_CACHE_HOME:-$HOME/.local/share}/wget-hsts"'
 # Shorten commands {{{
 alias d="docker"
 alias dc="docker-compose"
-alias f="firefox"
+alias f="firefox-developer-edition"
 alias g="git"
 alias h="helm"
 alias k="kubectl"
-alias l="ls"
-alias la="ls -la"
+alias l="exa --group-directories-first --icons"
+alias la="l -la"
+alias ll="l -l"
+alias lt="l --tree"
 alias p="python3"
 alias tf="terraform"
 alias tg="terragrunt"
 alias v="nvim"
 alias :q="exit"
 alias :x="exit"
-# }}}
-
-# Overwrite commands {{{
-exist bat    && alias cat="bat"
-exist curlie && alias curl="curlie"
-exist dog    && alias dig="dog"
-exist exa    && alias ls="exa --group-directories-first --icons" \
-             && alias tree="ls --tree"
-exist fd     && alias find="fd"
-exist sd     && alias sed="sd"
-exist rg     && alias grep="rg"
 # }}}
 
 # Dotfiles management {{{
