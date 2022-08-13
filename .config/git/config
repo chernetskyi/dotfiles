@@ -28,7 +28,7 @@
     d   = diff
     f   = fetch
     i   = init
-    l   = log --decorate --graph --format='%Cred%h %Cgreen%cn %Cblue%cr %Creset%s'
+    l   = log --decorate --graph --format='%Cred%h %Cblue%cn %Cgreen%cr %Creset%s'
     m   = merge
     r   = rebase
     s   = status --short
