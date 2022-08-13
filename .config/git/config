@@ -44,7 +44,6 @@
     ms  = merge --squash
     pl  = pull --ff-only
     ps  = push
-    rb  = rebase
     rh  = reset --hard
     rl  = reflog
     rm  = rm -r
