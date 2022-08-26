@@ -3,16 +3,6 @@ exist () { command -v "${1}" &> /dev/null }
 sourcex () { source "${1}" 2> /dev/null || return 0 }
 # }}}
 
-# Launch tmux on startup {{{
-if exist tmux && [[ -z "${TMUX}" ]]; then
-  if ! tmux has-session -t startup 2> /dev/null; then
-    tmux new-session -s startup -n main
-  else
-    tmux attach-session -t startup
-  fi
-fi
-# }}}
-
 # Powerlevel10k prompt {{{
 sourcex /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme \
   && sourcex "${ZDOTDIR:-$HOME/.config/zsh}/.p10k.zsh"
