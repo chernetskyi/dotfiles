@@ -11,7 +11,7 @@ n ()
     return
   fi
 
-  BAT_THEME=base16-256 nnn -aeiU -P p "$@"
+  nnn -aeiU -P p "$@"
 
   if [ -f "$NNN_TMPFILE" ]; then
     . "$NNN_TMPFILE"
