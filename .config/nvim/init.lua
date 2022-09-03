@@ -74,8 +74,9 @@ vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', 'y', 'myy`y')
 vim.keymap.set('v', 'Y', 'myY`y')
 
-vim.keymap.set('', 'j', function() return vim.v.count == 0 and 'gj' or 'j' end, { expr = true })
-vim.keymap.set('', 'k', function() return vim.v.count == 0 and 'gk' or 'k' end, { expr = true })
+for _, key in ipairs({ 'j', '<Down>', 'k', '<Up>' }) do
+  vim.keymap.set('', key, function() return vim.v.count == 0 and 'g'..key or key end, { expr = true })
+end
 
 for _, breakpoint in ipairs({ '.', ',', '!', '?', '{', '}', '[', ']', '(', ')', '<', '>', '=', ':', ':' }) do
   vim.keymap.set('i', breakpoint, breakpoint .. '<c-g>u')
