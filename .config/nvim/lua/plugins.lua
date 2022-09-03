@@ -2,28 +2,28 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  PACKER_BOOTSTRAP = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
   vim.cmd[[packadd packer.nvim]]
 end
 -- }}}
 
 return require('packer').startup(function(use)
-  use {'wbthomason/packer.nvim',
+  use { 'wbthomason/packer.nvim',
   -- config {{{
         config = function()
-          vim.api.nvim_create_autocmd('BufWritePost', {group = vim.api.nvim_create_augroup('PackerCompileOnSave', { clear = true }), pattern = 'plugins.lua', command = 'source <afile> | PackerCompile'})
-        end}
+          vim.api.nvim_create_autocmd('BufWritePost', { group = vim.api.nvim_create_augroup('PackerCompileOnSave', { clear = true }), pattern = 'plugins.lua', command = 'source <afile> | PackerCompile' })
+        end }
   -- }}}
 
-  use {'github/copilot.vim',
+  use { 'github/copilot.vim',
   -- config {{{
         config = function()
           vim.g.copilot_no_tab_map = true
           vim.keymap.set('i', '<C-Space>', 'copilot#Accept("")', { expr = true, script = true, silent = true })
-        end}
+        end }
   -- }}}
 
-  use {'hrsh7th/nvim-cmp', requires = { 'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline', 'petertriho/cmp-git' },
+  use { 'hrsh7th/nvim-cmp', requires = { 'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline', 'petertriho/cmp-git' },
   -- config {{{
         config = function()
           vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -65,7 +65,7 @@ return require('packer').startup(function(use)
             },
             mapping = {
               ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
-              ['<CR>'] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace})
+              ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace })
             },
             sources = cmp.config.sources({
               { name = 'nvim_lsp' },
@@ -107,10 +107,10 @@ return require('packer').startup(function(use)
               }
             }
           }
-        end}
+        end }
   -- }}}
 
-  use {'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' },
+  use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' },
   -- config {{{
         config = function()
           local null_ls = require('null-ls')
@@ -126,42 +126,42 @@ return require('packer').startup(function(use)
           null_ls.setup{ sources = sources }
 
         end}
-  -- }}}
+  -- }}} 
 
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
   -- config {{{
         config = function()
           require'nvim-treesitter.configs'.setup{
             ensure_installed = { 'bash', 'comment', 'css', 'dockerfile', 'hcl', 'help', 'html', 'http', 'jsdoc', 'json', 'json5', 'jsonc', 'lua', 'python', 'regex', 'scss', 'yaml' },
             highlight = { enable = true }
           }
-        end}
+        end }
   -- }}}
 
-  use {'steelsojka/pears.nvim',
+  use { 'steelsojka/pears.nvim',
   --  config {{{
         config = function()
           require('pears').setup(function(conf)
             conf.remove_pair_on_outer_backspace(false)
             conf.expand_on_enter(true)
           end)
-        end}
+        end }
   -- }}}
 
-  use {'andymass/vim-matchup',
+  use { 'andymass/vim-matchup',
   -- config {{{
         config = function()
           vim.g.loaded_matchit = 1
-        end}
+        end }
   -- }}}
 
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-fugitive'
-  use {'tpope/vim-surround', requires = 'tpope/vim-repeat'}
+  use { 'tpope/vim-commentary' }
+  use { 'tpope/vim-fugitive' }
+  use { 'tpope/vim-surround', requires = 'tpope/vim-repeat' }
 
-  use 'dstein64/vim-startuptime'
+  use { 'dstein64/vim-startuptime' }
 
-  use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
+  use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
           require('nvim-tree').setup{
@@ -184,11 +184,11 @@ return require('packer').startup(function(use)
             }
           }
           vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', { silent = true })
-          vim.api.nvim_create_autocmd('BufEnter', {pattern = '*', command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif", nested = true})
-        end}
+          vim.api.nvim_create_autocmd('BufEnter', { pattern = '*', command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif", nested = true })
+        end }
   -- }}}
 
-  use {'rose-pine/neovim', as = 'rose-pine',
+  use { 'rose-pine/neovim', as = 'rose-pine',
   -- config {{{
         config = function()
           require('rose-pine').setup{
@@ -203,10 +203,10 @@ return require('packer').startup(function(use)
             }
           }
         vim.cmd[[colorscheme rose-pine]]
-        end}
+        end }
   -- }}}
 
-  use {'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons',
+  use { 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons',
   -- config {{{
         config = function()
           require('lualine').setup{
@@ -218,7 +218,7 @@ return require('packer').startup(function(use)
             },
             extensions = { 'fugitive', 'nvim-tree' }
           }
-        end}
+        end }
   --  }}}
 
   if PACKER_BOOTSTRAP then
