@@ -86,7 +86,6 @@ end
 -- Misc {{{
 vim.opt.confirm = true
 vim.opt.modelines = 1
-vim.opt.mouse = 'a'
 
 vim.api.nvim_create_autocmd('TextYankPost', { group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }), pattern = '*', callback = function() require('vim.highlight').on_yank() end })
 -- }}}
