@@ -20,8 +20,9 @@ n ()
 }
 # }}}
 
-# Bind Ctrl+n to Ctrl+U -> n -> Enter {{{
+# Bind Ctrl+n to nnn {{{
 bindkey -s "^N" "^Un^M"
+bindkey -as "^N" "ccn^M"
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
