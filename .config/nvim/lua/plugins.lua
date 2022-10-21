@@ -116,7 +116,7 @@ return require('packer').startup(function(use)
           local null_ls = require('null-ls')
 
           local sources = {
-              null_ls.builtins.diagnostics.vale.with{ filetypes = { 'text', 'markdown', 'html', 'tex' } },
+              null_ls.builtins.diagnostics.vale.with{ filetypes = { 'text', 'markdown' } },
               null_ls.builtins.formatting.jq,
               null_ls.builtins.formatting.terraform_fmt,
           }
