@@ -86,7 +86,7 @@ return require('packer').startup(function(use)
           cmp.setup.cmdline('/', { mapping = cmp.mapping.preset.cmdline(), sources = {{ name = 'buffer' }} })
           cmp.setup.cmdline(':', { mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{ name = 'path' }}, {{ name = 'cmdline' }}) })
 
-          local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+          local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
           for _, lsp in ipairs({ 'ansiblels', 'bashls', 'cssls', 'dockerls', 'html', 'jsonls', 'pylsp', 'sumneko_lua', 'terraformls', 'yamlls' }) do
             require('lspconfig')[lsp].setup{ capabilities = capabilities }
           end
@@ -116,7 +116,6 @@ return require('packer').startup(function(use)
           local null_ls = require('null-ls')
 
           local sources = {
-              null_ls.builtins.diagnostics.vale.with{ filetypes = { 'text', 'markdown' } },
               null_ls.builtins.formatting.jq,
               null_ls.builtins.formatting.terraform_fmt,
           }
