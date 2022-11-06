@@ -15,48 +15,12 @@ return require('packer').startup(function(use)
         end }
   -- }}}
 
-  use { 'github/copilot.vim',
-  -- config {{{
-        config = function()
-          vim.g.copilot_no_tab_map = true
-          vim.keymap.set('i', '<C-Space>', 'copilot#Accept("")', { expr = true, script = true, silent = true })
-        end }
-  -- }}}
-
   use { 'hrsh7th/nvim-cmp', requires = { 'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline', 'petertriho/cmp-git' },
   -- config {{{
         config = function()
           vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
-          local kind_icons = {
-            Text = '',
-            Method = '',
-            Function = '',
-            Constructor = '',
-            Field = '',
-            Variable = '',
-            Class = 'ﴯ',
-            Interface = '',
-            Module = '',
-            Property = 'ﰠ',
-            Unit = '',
-            Value = '',
-            Enum = '',
-            Keyword = '',
-            Snippet = '',
-            Color = '',
-            File = '',
-            Reference = '',
-            Folder = '',
-            EnumMember = '',
-            Constant = '',
-            Struct = '',
-            Event = '',
-            Operator = '',
-            TypeParameter = ''
-          }
-
-          local cmp = require 'cmp'
+          local cmp = require('cmp')
           cmp.setup{
             snippet = {
               expand = function(args)
@@ -72,18 +36,12 @@ return require('packer').startup(function(use)
               { name = 'luasnip' },
             }, {
               { name = 'buffer' },
-            }),
-            formatting = {
-              format = function(_, vim_item)
-                vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
-                return vim_item
-              end
-            }
+            })
           }
 
           cmp.setup.filetype('gitcommit', { sources = cmp.config.sources({{ name = 'cmp_git' }}, {{ name = 'buffer' }}) })
 
-          cmp.setup.cmdline('/', { mapping = cmp.mapping.preset.cmdline(), sources = {{ name = 'buffer' }} })
+          cmp.setup.cmdline({ '/', '?' }, { mapping = cmp.mapping.preset.cmdline(), sources = {{ name = 'buffer' }} })
           cmp.setup.cmdline(':', { mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{ name = 'path' }}, {{ name = 'cmdline' }}) })
 
           local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -92,12 +50,12 @@ return require('packer').startup(function(use)
           end
 
           -- Zsh support
-          require('lspconfig').bashls.setup{
+          require('lspconfig')['bashls'].setup{
             cmd_env = { GLOB_PATTERN = '*@(.sh|.inc|.bash|.zsh|.command)' },
             filetypes = { 'sh', 'bash', 'zsh' }
           }
           -- Neovim support
-          require('lspconfig').sumneko_lua.setup{
+          require('lspconfig')['sumneko_lua'].setup{
             settings = {
               Lua = {
                 runtime = { version = 'LuaJIT' },
@@ -114,23 +72,32 @@ return require('packer').startup(function(use)
   -- config {{{
         config = function()
           local null_ls = require('null-ls')
-
-          local sources = {
+          null_ls.setup{
+            sources = {
               null_ls.builtins.formatting.jq,
               null_ls.builtins.formatting.terraform_fmt,
+            }
           }
-
-          null_ls.setup{ sources = sources }
-
         end}
-  -- }}} 
+  -- }}}
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
   -- config {{{
         config = function()
-          require'nvim-treesitter.configs'.setup{
-            ensure_installed = { 'bash', 'comment', 'css', 'dockerfile', 'hcl', 'help', 'html', 'http', 'jsdoc', 'json', 'json5', 'jsonc', 'lua', 'python', 'regex', 'scss', 'yaml' },
+          require('nvim-treesitter.configs').setup{
+            ensure_installed = { 'bash', 'comment', 'css', 'diff', 'dockerfile', 'git_rebase', 'gitignore', 'hcl', 'help', 'html', 'http', 'jsdoc', 'json', 'json5', 'jsonc', 'lua', 'make', 'markdown', 'markdown_inline', 'python', 'regex', 'scss', 'sql', 'yaml' },
             highlight = { enable = true }
+          }
+        end }
+  -- }}}
+
+  use { 'smjonas/live-command.nvim',
+  -- config {{{
+        config = function()
+          require('live-command').setup{
+            commands = {
+              Norm = { cmd = 'norm' },
+            }
           }
         end }
   -- }}}
@@ -152,38 +119,37 @@ return require('packer').startup(function(use)
         end }
   -- }}}
 
-  use { 'tpope/vim-commentary' }
-  use { 'tpope/vim-fugitive' }
-  use { 'tpope/vim-surround', requires = 'tpope/vim-repeat' }
-
-  use { 'dstein64/vim-startuptime' }
-
-  use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons',
+  use { 'kylechui/nvim-surround', tag = '*',
   -- config {{{
         config = function()
-          require('nvim-tree').setup{
-            open_on_tab = true,
-            update_focused_file = { enable = true },
-            diagnostics = { enable = true },
-            view = {
-              number = true,
-              signcolumn = 'no'
-            },
-            renderer = {
-              add_trailing = true,
-              group_empty = true,
-              indent_markers = { enable = true }
-            },
-            actions = {
-              open_file = {
-                window_picker = { enable = false }
-              }
-            }
-          }
-          vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', { silent = true })
-          vim.api.nvim_create_autocmd('BufEnter', { pattern = '*', command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif", nested = true })
+          require('nvim-surround').setup{}
         end }
   -- }}}
+
+  use { 'numToStr/Comment.nvim',
+  -- config {{{
+        config = function()
+          require('Comment').setup()
+        end }
+  -- }}}
+
+  use { 'luukvbaal/nnn.nvim',
+  -- config {{{
+        config = function()
+          local builtin = require('nnn').builtin
+          require('nnn').setup{
+            explorer = { session = 'shared' },
+            auto_close = true,
+            replace_netrw = 'explorer',
+            mappings = {
+              { '<C-t>', builtin.open_in_tab },
+              { '<C-s>', builtin.open_in_split },
+              { '<C-v>', builtin.open_in_vsplit }
+            }
+          }
+          vim.keymap.set('n', '<c-n>', ':NnnExplorer<cr>', { silent = true })
+        end }
+    -- }}}
 
   use { 'rose-pine/neovim', as = 'rose-pine',
   -- config {{{
@@ -207,13 +173,12 @@ return require('packer').startup(function(use)
   -- config {{{
         config = function()
           require('lualine').setup{
-            options = { globalstatus = false },
+            options = { ignore_focus = { 'nnn' } },
             sections = { lualine_x = { 'filetype' } },
             tabline = {
               lualine_a = { 'buffers' },
               lualine_z = { 'tabs' }
-            },
-            extensions = { 'fugitive', 'nvim-tree' }
+            }
           }
         end }
   --  }}}
