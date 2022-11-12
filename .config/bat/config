@@ -1,13 +1,9 @@
-# theme {{{
---theme=base16-256
-# }}}
-
 # style {{{
---style=plain
+--style='numbers,changes,header'
 # }}}
 
-# paging {{{
---paging=never
+# theme {{{
+--theme=rose-pine
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
