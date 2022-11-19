@@ -22,41 +22,48 @@
 
 ; alias {{{
 [alias]
-    a   = add
-    b   = branch
-    c   = commit --allow-empty
-    d   = diff
-    f   = fetch
-    i   = init
-    l   = log --decorate --graph --format='%Cred%h %Cblue%cn %Cgreen%cr %Creset%s'
-    m   = merge
-    r   = rebase
-    s   = status --short
-    t   = tag
-    bl  = blame
-    bs  = bisect
-    cf  = config
-    ch  = checkout
-    cl  = clone
-    cp  = cherry-pick
-    dd  = diff --staged
-    dl  = clone --depth 1 --single-branch --branch
-    ms  = merge --squash
-    pl  = pull --ff-only
-    ps  = push
-    rh  = reset --hard
-    rl  = reflog
-    rm  = rm -r
-    rs  = reset --soft
-    rv  = revert
-    sb  = clone --single-branch --branch
-    sh  = show
-    sl  = shortlog
-    st  = stash
-    sw  = switch
-    pop = stash pop
-    rmt = remote
-    rst = restore
+    a    = add
+    b    = branch
+    c    = commit --allow-empty
+    d    = diff
+    f    = fetch
+    i    = init
+    l    = log --decorate --graph --format='%Cred%h %Cblue%cn %Cgreen%cr %Creset%s'
+    m    = merge
+    r    = rebase
+    s    = status --short
+    t    = tag
+    bl   = blame
+    bs   = bisect
+    ca   = commit --amend --no-edit
+    ce   = commit --allow-empty --amend
+    cf   = config
+    ch   = checkout
+    cl   = clone
+    cp   = cherry-pick
+    dd   = diff --staged
+    dl   = clone --depth 1 --single-branch --branch
+    ms   = merge --squash
+    pl   = pull --ff-only
+    ps   = push
+    rh   = reset --hard
+    ri   = rebase --interactive
+    rl   = reflog
+    rm   = rm -r
+    rs   = reset --soft
+    rv   = revert
+    sb   = clone --single-branch --branch
+    sh   = show
+    sl   = shortlog
+    st   = stash
+    sw   = switch
+    tf   = tag --force
+    plf  = pull --force
+    pop  = stash pop
+    psf  = push --force
+    psu  = push --set-upstream origin
+    rmt  = remote
+    root = rev-parse --show-toplevel
 ; }}}
 
 ; credential helpers {{{
