@@ -15,6 +15,11 @@
     gpgsign = true
 ; }}}
 
+; push {{{
+[push]
+    autoSetupRemote = true
+; }}}
+
 ; init {{{
 [init]
     defaultBranch = main
@@ -61,7 +66,6 @@
     plf  = pull --force
     pop  = stash pop
     psf  = push --force
-    psu  = push --set-upstream origin
     rmt  = remote
     root = rev-parse --show-toplevel
 ; }}}
