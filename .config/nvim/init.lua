@@ -60,9 +60,14 @@ vim.opt.writebackup = false
 -- }}}
 
 -- Key mappings {{{
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 vim.keymap.set('n', 'J', 'mzJ`z')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 vim.keymap.set('n', 'gf', ':edit <cfile><cr>')
 
@@ -74,13 +79,17 @@ vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', 'y', 'myy`y')
 vim.keymap.set('v', 'Y', 'myY`y')
 
-for _, key in ipairs({ 'j', '<Down>', 'k', '<Up>' }) do
-  vim.keymap.set('', key, function() return vim.v.count == 0 and 'g'..key or key end, { expr = true })
-end
+vim.g.mapleader = ' '
+vim.keymap.set('x', '<leader>p', '"_dp')
+vim.keymap.set('n', '<leader>y' ,'"+y')
+vim.keymap.set('v', '<leader>y' ,'"+y')
+vim.keymap.set('n', '<leader>Y' ,'"+Y')
+vim.keymap.set('n', '<leader>d' ,'"+d')
+vim.keymap.set('v', '<leader>d' ,'"+d')
+vim.keymap.set('n', '<leader>D' ,'"+D')
 
-for _, breakpoint in ipairs({ '.', ',', '!', '?', '{', '}', '[', ']', '(', ')', '<', '>', '=', ':', ':' }) do
-  vim.keymap.set('i', breakpoint, breakpoint .. '<c-g>u')
-end
+vim.keymap.set('', 'j', function() return vim.v.count == 0 and 'gj' or 'j' end, { expr = true })
+vim.keymap.set('', 'k', function() return vim.v.count == 0 and 'gk' or 'k' end, { expr = true })
 -- }}}
 
 -- Misc {{{

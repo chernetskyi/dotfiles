@@ -49,6 +49,7 @@
     dd   = diff --staged
     dl   = clone --depth 1 --single-branch --branch
     ms   = merge --squash
+    nb   = checkout -B
     pl   = pull --ff-only
     ps   = push
     rh   = reset --hard

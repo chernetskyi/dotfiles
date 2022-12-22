@@ -165,7 +165,7 @@ return require('packer').startup(function(use)
               TSPunctDelimeter = { fg = 'text' },
             }
           }
-        vim.cmd('colorscheme rose-pine')
+          vim.cmd.colorscheme('rose-pine')
         end }
   -- }}}
 
