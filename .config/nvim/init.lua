@@ -80,7 +80,7 @@ vim.keymap.set('v', 'y', 'myy`y')
 vim.keymap.set('v', 'Y', 'myY`y')
 
 vim.g.mapleader = ' '
-vim.keymap.set('x', '<leader>p', '"_dp')
+vim.keymap.set('x', '<leader>p', '"_dhp')
 vim.keymap.set('n', '<leader>y' ,'"+y')
 vim.keymap.set('v', '<leader>y' ,'"+y')
 vim.keymap.set('n', '<leader>Y' ,'"+Y')
