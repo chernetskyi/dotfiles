@@ -9,6 +9,7 @@ export XDG_CONFIG_DIRS="/etc/xdg/"
 
 # Default programs {{{
 export BROWSER=firefox-developer-edition
+export MOZ_USE_XINPUT2=1
 export EDITOR=nvim
 export VISUAL=nvim
 export PAGER="less -FfR"
