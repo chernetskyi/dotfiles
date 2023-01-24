@@ -69,6 +69,7 @@
     pop  = stash pop
     psf  = push --force
     rmt  = remote
+    rank = shortlog -nse --no-merges
     root = rev-parse --show-toplevel
 ; }}}
 
