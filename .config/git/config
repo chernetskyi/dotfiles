@@ -3,6 +3,7 @@
     name = Volodymyr Chernetskyi
     email = 19735328+chernetskyi@users.noreply.github.com
     signingkey = F0E3704751532A30
+    useConfigOnly = true
 ; }}}
 
 ; core {{{
