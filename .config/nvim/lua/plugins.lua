@@ -68,19 +68,6 @@ return require('packer').startup(function(use)
         end }
   -- }}}
 
-  use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' },
-  -- config {{{
-        config = function()
-          local null_ls = require('null-ls')
-          null_ls.setup{
-            sources = {
-              null_ls.builtins.formatting.jq,
-              null_ls.builtins.formatting.terraform_fmt,
-            }
-          }
-        end}
-  -- }}}
-
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
   -- config {{{
         config = function()
