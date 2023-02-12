@@ -120,23 +120,26 @@ return require('packer').startup(function(use)
         end }
   -- }}}
 
-  use { 'luukvbaal/nnn.nvim',
+  use { 'nvim-tree/nvim-tree.lua', requires = 'nvim-tree/nvim-web-devicons',
   -- config {{{
         config = function()
-          local builtin = require('nnn').builtin
-          require('nnn').setup{
-            explorer = { session = 'shared' },
-            auto_close = true,
-            replace_netrw = 'explorer',
-            mappings = {
-              { '<C-t>', builtin.open_in_tab },
-              { '<C-s>', builtin.open_in_split },
-              { '<C-v>', builtin.open_in_vsplit }
+          require('nvim-tree').setup{
+            update_focused_file = { enable = true },
+            view = { signcolumn = 'no' },
+            renderer = {
+              add_trailing = true,
+              group_empty = true,
+            },
+            actions = {
+              open_file = {
+                window_picker = { enable = false }
+              }
             }
           }
-          vim.keymap.set('n', '<c-n>', ':NnnExplorer<cr>', { silent = true })
+          vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', { silent = true })
+          vim.api.nvim_create_autocmd('BufEnter', { pattern = '*', command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif", nested = true })
         end }
-    -- }}}
+  -- }}}
 
   use { 'rose-pine/neovim', as = 'rose-pine',
   -- config {{{
@@ -156,16 +159,16 @@ return require('packer').startup(function(use)
         end }
   -- }}}
 
-  use { 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons',
+  use { 'nvim-lualine/lualine.nvim', requires = 'nvim-tree/nvim-web-devicons',
   -- config {{{
         config = function()
           require('lualine').setup{
-            options = { ignore_focus = { 'nnn' } },
             sections = { lualine_x = { 'filetype' } },
             tabline = {
               lualine_a = { 'buffers' },
               lualine_z = { 'tabs' }
-            }
+            },
+            extensions = { 'nvim-tree' }
           }
         end }
   --  }}}

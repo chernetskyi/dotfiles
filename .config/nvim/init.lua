@@ -1,5 +1,10 @@
 require 'plugins'
 
+-- disable netrw {{{
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- }}}
+
 -- UI {{{
 vim.opt.cursorline = true
 vim.opt.laststatus = 3
