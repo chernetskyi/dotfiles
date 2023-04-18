@@ -1,9 +1,5 @@
-# Environment variables {{{
-export NNN_PLUG="p:preview-tui"
 export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/lastd"
-# }}}
 
-# cd on quit {{{
 n ()
 {
   if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
@@ -11,18 +7,13 @@ n ()
     return
   fi
 
-  nnn -aeiU -P p "$@"
+  nnn -adeiDU "$@"
 
   if [ -f "$NNN_TMPFILE" ]; then
     . "$NNN_TMPFILE"
     rm -f "$NNN_TMPFILE" > /dev/null
   fi
 }
-# }}}
 
-# Bind Ctrl+n to nnn {{{
 bindkey -s "^N" "^Un^M"
 bindkey -as "^N" "ccn^M"
-# }}}
-
-# vim:foldmethod=marker:foldlevel=0

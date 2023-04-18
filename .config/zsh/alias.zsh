@@ -1,4 +1,4 @@
-# Change default behavior with flags {{{
+# Change default behavior with flags
 alias cal="cal -m"
 alias cp="cp -r"
 alias mkdir="mkdir -p"
@@ -6,9 +6,8 @@ alias rm="rm -rf"
 alias scp="scp -r"
 alias sudo="sudo "
 alias wget='wget --hsts-file="${XDG_CACHE_HOME:-$HOME/.local/share}/wget-hsts"'
-# }}}
 
-# Shorten commands {{{
+# Shorten commands
 alias cdg='git rev-parse --is-inside-work-tree &> /dev/null && cd $(git rev-parse --show-toplevel)'
 alias d="docker"
 alias dc="docker-compose"
@@ -26,10 +25,8 @@ alias tg="terragrunt"
 alias v="nvim"
 alias :q="exit"
 alias :x="exit"
-# }}}
 
-# Dotfiles management {{{
+# Dotfiles management
 alias dot='git --git-dir="${XDG_DATA_HOME:-$HOME/.local/share}"/dotfiles/ --work-tree=$HOME'
-# }}}
 
 # vim:foldmethod=marker:foldlevel=0

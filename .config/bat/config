@@ -1,9 +1,2 @@
-# style {{{
 --style='numbers,changes,header'
-# }}}
-
-# theme {{{
 --theme=rose-pine
-# }}}
-
-# vim:foldmethod=marker:foldlevel=0

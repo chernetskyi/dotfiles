@@ -1,30 +1,20 @@
-; user {{{
 [user]
     name = Volodymyr Chernetskyi
     email = 19735328+chernetskyi@users.noreply.github.com
     signingkey = F0E3704751532A30
     useConfigOnly = true
-; }}}
 
-; core {{{
 [core]
     editor = nvim
-; }}}
 
-; commit {{{
 [commit]
     gpgsign = true
-; }}}
 
-; push {{{
 [push]
     autoSetupRemote = true
-; }}}
 
-; init {{{
 [init]
     defaultBranch = main
-; }}}
 
 ; alias {{{
 [alias]
@@ -73,7 +63,6 @@
     root = rev-parse --show-toplevel
 ; }}}
 
-; credential helpers {{{
 [credential "https://github.com"]
   helper = 
   helper = !/usr/bin/gh auth git-credential
@@ -81,6 +70,5 @@
 [credential "https://gist.github.com"]
   helper = 
   helper = !/usr/bin/gh auth git-credential
-; }}}
 
 ; vim:foldmethod=marker:foldlevel=0
