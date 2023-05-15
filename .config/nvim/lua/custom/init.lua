@@ -8,9 +8,6 @@ opt.confirm = true
 opt.diffopt:append "linematch:60"
 opt.lazyredraw = true
 opt.linebreak = true
-opt.list = true
-opt.listchars:append "space:·"
-opt.listchars:append "tab:-->"
 opt.modelines = 1
 opt.relativenumber = true
 opt.scrolloff = 8
