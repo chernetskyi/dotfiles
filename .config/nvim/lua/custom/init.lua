@@ -5,6 +5,7 @@ local opt = vim.opt
 opt.breakindent = true
 opt.clipboard = ""
 opt.confirm = true
+opt.diffopt:append "linematch:60"
 opt.lazyredraw = true
 opt.linebreak = true
 opt.list = true
