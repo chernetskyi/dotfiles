@@ -16,7 +16,6 @@ local servers = {
   "lua_ls",
   "sqlls",
   "terraformls",
-  "tflint",
   "yamlls",
 }
 
