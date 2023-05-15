@@ -22,9 +22,13 @@ alias lt="l --tree"
 alias p="python3"
 alias tf="terraform"
 alias tg="terragrunt"
-alias v="nvim"
 alias :q="exit"
 alias :x="exit"
+
+v ()
+{
+  [ -S /tmp/neovim.pipe ] && nvim --server /tmp/neovim.pipe --remote $@ || nvim --listen /tmp/neovim.pipe $@
+}
 
 # Dotfiles management
 alias dot='git --git-dir="${XDG_DATA_HOME:-$HOME/.local/share}"/dotfiles/ --work-tree=$HOME'
