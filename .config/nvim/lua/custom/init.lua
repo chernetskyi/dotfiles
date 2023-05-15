@@ -11,7 +11,6 @@ opt.linebreak = true
 opt.modelines = 1
 opt.relativenumber = true
 opt.scrolloff = 8
-opt.wildmode = { "longest", "full" }
 opt.writebackup = false
 
 -- highlight yank
