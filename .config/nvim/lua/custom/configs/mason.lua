@@ -2,7 +2,6 @@ return {
   ensure_installed = {
     "actionlint",
     "ansible-language-server",
-    "autopep8",
     "bash-language-server",
     "css-lsp",
     "docker-compose-language-service",
@@ -13,9 +12,8 @@ return {
     "json-lsp",
     "lua-language-server",
     "prettierd",
-    "pylint",
     "python-lsp-server",
-    "reorder-python-imports",
+    "ruff",
     "shellcheck",
     "sqlfmt",
     "sqlls",

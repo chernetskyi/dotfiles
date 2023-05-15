@@ -4,9 +4,8 @@ local formatting = null_ls.builtins.formatting
 local lint = null_ls.builtins.diagnostics
 
 local sources = {
-  formatting.autopep8,
   formatting.prettierd,
-  formatting.reorder_python_imports,
+  formatting.ruff,
   formatting.sqlfmt,
   formatting.stylua,
   formatting.terraform_fmt,
@@ -14,7 +13,7 @@ local sources = {
 
   lint.actionlint,
   lint.hadolint,
-  lint.pylint,
+  lint.ruff,
   lint.shellcheck,
   lint.stylelint,
   lint.trail_space,
