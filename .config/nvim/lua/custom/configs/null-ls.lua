@@ -12,10 +12,12 @@ local sources = {
   formatting.trim_whitespace,
 
   lint.actionlint,
+  lint.gitlint,
   lint.hadolint,
   lint.ruff,
   lint.shellcheck,
   lint.stylelint,
+  lint.todo_comments,
   lint.trail_space,
 }
 

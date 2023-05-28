@@ -6,6 +6,7 @@ return {
     "css-lsp",
     "docker-compose-language-service",
     "dockerfile-language-server",
+    "gitlint",
     "hadolint",
     "helm-ls",
     "html-lsp",
