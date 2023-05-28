@@ -18,7 +18,7 @@
 
 ; alias {{{
 [alias]
-    a    = add
+    a    = add --force
     b    = branch
     c    = commit --allow-empty
     d    = diff
