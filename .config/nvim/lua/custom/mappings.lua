@@ -33,7 +33,7 @@ M.clipboard = {
     ["<leader>d"] = { '"+d', "Delete to the clipboard" },
     ["<leader>D"] = { '"+D', "Delete till the end of the line to the clipboard" },
     ["<leader>y"] = { '"+y', "Yank to the clipboard" },
-    ["<leader>Y"] = { '"+Y', "Yank till the end of the line to the clipboard" },
+    ["<leader>Y"] = { '"+y$', "Yank till the end of the line to the clipboard" },
   },
   v = {
     ["<leader>d"] = { '"+d', "Delete to the clipboard" },
