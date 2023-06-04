@@ -1,5 +1,4 @@
 local api = vim.api
-local keymap = vim.keymap
 local opt = vim.opt
 
 opt.breakindent = true
