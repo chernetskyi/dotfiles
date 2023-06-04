@@ -27,7 +27,16 @@ alias :x="exit"
 
 v ()
 {
-  [ -S /tmp/neovim.pipe ] && nvim --server /tmp/neovim.pipe --remote $@ || nvim --listen /tmp/neovim.pipe $@
+  if [ -S /tmp/neovim.pipe ]; then
+    for FILE in "${@}"; do
+      case "${FILE}" in
+        /*) nvim --server /tmp/neovim.pipe --remote "${FILE}" ;;
+        *) nvim --server /tmp/neovim.pipe --remote "$(readlink -f "${FILE}")" ;;
+      esac
+    done
+  else
+    nvim --listen /tmp/neovim.pipe "${@}"
+  fi
 }
 
 # Dotfiles management
