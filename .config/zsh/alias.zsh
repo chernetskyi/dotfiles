@@ -28,12 +28,7 @@ alias :x="exit"
 v ()
 {
   if [ -S /tmp/neovim.pipe ]; then
-    for FILE in "${@}"; do
-      case "${FILE}" in
-        /*) nvim --server /tmp/neovim.pipe --remote "${FILE}" ;;
-        *) nvim --server /tmp/neovim.pipe --remote "$(readlink -f "${FILE}")" ;;
-      esac
-    done
+    readlink -f "${@}" | xargs nvim --server /tmp/neovim.pipe --remote
   else
     nvim --listen /tmp/neovim.pipe "${@}"
   fi
