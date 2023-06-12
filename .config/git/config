@@ -1,67 +1,85 @@
 [user]
-    name = Volodymyr Chernetskyi
-    email = 19735328+chernetskyi@users.noreply.github.com
-    signingkey = F0E3704751532A30
-    useConfigOnly = true
+  name = Volodymyr Chernetskyi
+  email = 19735328+chernetskyi@users.noreply.github.com
+  signingkey = F0E3704751532A30
+  useConfigOnly = true
 
 [core]
-    editor = nvim
+  editor = nvim
 
 [commit]
-    gpgsign = true
+  gpgsign = true
 
-[push]
-    autoSetupRemote = true
+[diff]
+  tool = nvimdiff
+
+[difftool]
+  prompt = false
 
 [init]
-    defaultBranch = main
+  defaultBranch = main
+
+[merge]
+  autoStash = true
+
+[push]
+  autoSetupRemote = true
+
+[rebase]
+  autoStash = true
+  autoSquash = true
 
 ; alias {{{
 [alias]
-    a    = add
-    b    = branch
-    c    = commit --allow-empty
-    d    = diff
-    f    = fetch
-    i    = init
-    l    = log --decorate --graph --format='%Cred%h %Cblue%cn %Cgreen%cr %Creset%s'
-    m    = merge
-    r    = rebase
-    s    = status --short
-    t    = tag
-    af   = add --force
-    bl   = blame
-    bs   = bisect
-    ca   = commit --amend --no-edit
-    ce   = commit --allow-empty --amend
-    cf   = config
-    ch   = checkout
-    cl   = clone
-    cp   = cherry-pick
-    dd   = diff --staged
-    dl   = clone --depth 1 --single-branch --branch
-    ms   = merge --squash
-    nb   = checkout -B
-    pl   = pull --ff-only
-    ps   = push
-    rh   = reset --hard
-    ri   = rebase --interactive
-    rl   = reflog
-    rm   = rm -r
-    rs   = reset --soft
-    rv   = revert
-    sb   = clone --single-branch --branch
-    sh   = show
-    sl   = shortlog
-    st   = stash
-    sw   = switch
-    tf   = tag --force
-    plf  = pull --force
-    pop  = stash pop
-    psf  = push --force
-    rmt  = remote
-    rank = shortlog -nse --no-merges
-    root = rev-parse --show-toplevel
+  a      = add
+  b      = branch
+  c      = commit --allow-empty
+  d      = diff
+  f      = fetch
+  i      = init
+  l      = log -n 10 --decorate --graph --format='%Cred%h %Cblue%cn %Cgreen%cr %Creset%s'
+  m      = merge
+  r      = rebase
+  s      = status --short
+  t      = tag
+  af     = add --force
+  bl     = blame
+  bs     = bisect
+  ca     = commit --amend --no-edit
+  ce     = commit --allow-empty --amend
+  cf     = config
+  ch     = checkout
+  cl     = clone
+  cp     = cherry-pick
+  dd     = diff --staged
+  dl     = clone --depth 1 --single-branch --branch
+  ds     = diff --compact-summary
+  ll     = log --decorate --graph --format='%Cred%h %Cblue%cn %Cgreen%cr %Creset%s'
+  ms     = merge --squash
+  nb     = checkout -B
+  pl     = pull --ff-only
+  ps     = push --no-progress
+  rh     = reset --hard
+  ri     = rebase --interactive
+  rl     = reflog
+  rm     = rm -r
+  rs     = reset --soft
+  rv     = revert
+  sb     = clone --single-branch --branch
+  sh     = show
+  sl     = shortlog
+  st     = stash
+  sw     = switch
+  tf     = tag --force
+  plf    = pull --force
+  pop    = stash pop
+  psf    = push --no-progress --force
+  rmt    = remote
+  rvh    = revert HEAD~1
+  rank   = shortlog -nse --no-merges
+  root   = rev-parse --show-toplevel
+  fixup  = commit --fixup
+  squash = commit --squash
 ; }}}
 
 [credential "https://github.com"]
