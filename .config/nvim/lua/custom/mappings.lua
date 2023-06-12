@@ -11,12 +11,13 @@ M.disabled = {
 M.general = {
   n = {
     ["V"] = { "v$", "Select till the end of the line" },
+    ["J"] = { "mzJ`z", "Join lines without moving" },
     ["n"] = { "nzzzv", "Center the next match" },
     ["N"] = { "Nzzzv", "Center the previous match" },
-    ["J"] = { "mzJ`z", "Join lines without moving" },
-    ["gf"] = { ":edit <cfile><cr>", "Open file under a cursor for editing" },
     ["<C-d>"] = { "<C-d>zz", "Center page on scroll down" },
     ["<C-u>"] = { "<C-u>zz", "Center page on scroll up" },
+    ["gf"] = { ":edit <cfile><cr>", "Open file under a cursor for editing" },
+    ["q:"] = { ":q", "Common typo fix" },
   },
   v = {
     ["<"] = { "<gv", "Remove indentation without removing the selection" },
