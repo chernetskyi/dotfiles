@@ -86,7 +86,7 @@ zle -N edit-command-line
 bindkey -M vicmd '^e' edit-command-line
 # }}}
 
-sourcex "${XDG_CONFIG_HOME:-$HOME/.config}/nnn/nnn.zsh"
+sourcex "${XDG_CONFIG_HOME:-$HOME/.config}/lf/lf.zsh"
 sourcex "${ZDOTDIR:-$HOME/.config/zsh}/alias.zsh"
 
 # vim:foldmethod=marker:foldlevel=0

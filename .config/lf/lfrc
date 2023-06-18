@@ -1,0 +1,34 @@
+# vim:ft=conf
+set autoquit         true
+set cursorpreviewfmt ""
+set drawbox          true
+set icons            true
+set incsearch true
+set mouse            true
+set scrolloff        8
+set shell            zsh
+set shellopts        "-eu"
+
+map <c-z> $kill -STOP $PPID
+
+map <enter> :shell-pipe
+map a       :push %mkdir<space>-p<space>
+map r       :push %mv<space>-v<space>$f<space>
+map x       %rm -rfv $f
+map .       :set hidden!
+
+map J :updir; set dironly true; down; set dironly false; open
+map K :updir; set dironly true; up; set dironly false; open
+
+set previewer ~/.config/lf/preview.zsh
+set cleaner   ~/.config/lf/clean.zsh
+
+cmd toggle_preview %{{
+  if [ "$lf_preview" = "true" ]; then
+    lf -remote "send $id :set preview false; set ratios 1:5"
+  else
+    lf -remote "send $id :set preview true; set ratios 1:2:3"
+  fi
+}}
+
+map zp toggle_preview
