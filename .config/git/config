@@ -75,7 +75,7 @@
   pop    = stash pop
   psf    = push --no-progress --force
   rmt    = remote
-  rvh    = revert HEAD~1
+  rvh    = revert HEAD
   rank   = shortlog -nse --no-merges
   root   = rev-parse --show-toplevel
   fixup  = commit --fixup
