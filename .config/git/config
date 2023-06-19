@@ -49,10 +49,10 @@
   ce     = commit --allow-empty --amend
   cf     = config
   ch     = checkout
-  cl     = clone
+  cl     = clone --no-progress
   cp     = cherry-pick
   dd     = diff --staged
-  dl     = clone --depth 1 --single-branch --branch
+  dl     = clone --no-progress --depth 1 --single-branch --branch
   ds     = diff --compact-summary
   ll     = log --decorate --graph --format='%Cred%h %Cblue%cn %Cgreen%cr %Creset%s'
   ms     = merge --squash
@@ -65,7 +65,7 @@
   rm     = rm -r
   rs     = reset --soft
   rv     = revert
-  sb     = clone --single-branch --branch
+  sb     = clone --no-progress --single-branch --branch
   sh     = show
   sl     = shortlog
   st     = stash
