@@ -64,7 +64,7 @@
   rl     = reflog
   rm     = rm -r
   rs     = reset --soft
-  rv     = revert
+  rv     = revert --no-edit
   sb     = clone --no-progress --single-branch --branch
   sh     = show
   sl     = shortlog
@@ -75,7 +75,7 @@
   pop    = stash pop
   psf    = push --no-progress --force
   rmt    = remote
-  rvh    = revert HEAD
+  rvh    = revert --no-edit HEAD
   rank   = shortlog -nse --no-merges
   root   = rev-parse --show-toplevel
   fixup  = commit --fixup
