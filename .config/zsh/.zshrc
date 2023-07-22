@@ -49,13 +49,6 @@ bindkey -v "^[[4~" end-of-line
 bindkey -v "^[[1;5D" backward-word
 bindkey -v "^[[1;5C" forward-word
 
-# completion menu navigation
-zmodload zsh/complist
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-
 # add brackets and quotes as text objects
 autoload -Uz select-bracketed select-quoted
 zle -N select-quoted
