@@ -54,6 +54,7 @@
   dd     = diff --staged
   dl     = clone --no-progress --depth 1 --single-branch --branch
   ds     = diff --compact-summary
+  dt     = difftool
   ll     = log --decorate --graph --format='%Cred%h %Cblue%cn %Cgreen%cr %Creset%s'
   ms     = merge --squash
   nb     = checkout -B
