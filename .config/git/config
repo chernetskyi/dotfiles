@@ -74,7 +74,7 @@
   tf     = tag --force
   plf    = pull --force
   pop    = stash pop
-  psf    = push --no-progress --force
+  psf    = push --no-progress --force-with-lease --force-if-includes
   rmt    = remote
   rvh    = revert --no-edit HEAD
   rank   = shortlog -nse --no-merges
