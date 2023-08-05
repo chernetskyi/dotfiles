@@ -9,6 +9,7 @@
 
 [commit]
   gpgsign = true
+  template = ~/.config/git/committemplate
 
 [diff]
   tool = nvimdiff
