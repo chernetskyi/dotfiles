@@ -55,6 +55,7 @@
   dl     = clone --no-progress --depth 1 --single-branch --branch
   ds     = diff --compact-summary
   dt     = difftool
+  fu     = commit --fixup
   ll     = log --decorate --graph --format='%Cred%h %Cblue%cn %Cgreen%cr %Creset%s'
   ms     = merge --squash
   nb     = checkout -B
