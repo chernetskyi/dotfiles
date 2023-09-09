@@ -1,0 +1,16 @@
+auto_sync = false
+dialect = "uk"
+inline_height = 11
+show_help = false
+show_preview = false
+style = "compact"
+update_check = false
+
+history_filter = [
+  "^cd",
+  "^clean$",
+  "^l$",
+  "^la$",
+  "^lfcd$",
+  "^ll$"
+]

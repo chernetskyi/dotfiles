@@ -1,20 +1,13 @@
 exist () { command -v "${1}" &> /dev/null }
 sourcex () { source "${1}" || return 0 }
 
+eval "$(atuin init zsh)"
+setopt appendhistory histfindnodups histignorespace histignoredups histreduceblanks
+
 sourcex /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme \
   && sourcex "${ZDOTDIR:-$HOME/.config/zsh}/.p10k.zsh"
 
-sourcex "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" \
-  && export ZSH_AUTOSUGGEST_HISTORY_IGNORE=("cd *") \
-  && export ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=() \
-  && bindkey '^ ' autosuggest-accept
-
 setopt autocd nobeep noextendedglob nohup nomatch nonotify
-
-HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history"
-HISTSIZE=50000
-SAVEHIST=50000
-setopt appendhistory histfindnodups histignorespace histignoredups histreduceblanks
 
 # Completion {{{
 fpath=(/usr/share/zsh/site-functions $fpath)
