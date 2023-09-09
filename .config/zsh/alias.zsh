@@ -22,8 +22,6 @@ alias p="python3"
 alias tf="terraform"
 alias tg="terragrunt"
 alias vc="nvim --clean"
-alias :q="exit"
-alias :x="exit"
 
 v ()
 {
