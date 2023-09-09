@@ -7,10 +7,18 @@ style = "compact"
 update_check = false
 
 history_filter = [
-  "^cd",
+  "^cd ",
+  "^cd$",
+  "^cdg$",
   "^clean$",
+  "^exit$",
+  "^l ",
   "^l$",
+  "^la ",
   "^la$",
   "^lfcd$",
-  "^ll$"
+  "^ll ",
+  "^ll$",
+  "^lt ",
+  "^lt$"
 ]
