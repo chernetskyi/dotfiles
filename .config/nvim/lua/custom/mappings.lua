@@ -20,8 +20,6 @@ M.general = {
     ["q:"] = { ":q", "Common typo fix" },
   },
   v = {
-    ["<"] = { "<gv", "Remove indentation without removing the selection" },
-    [">"] = { ">gv", "Add indentation without removing the selection" },
     ["y"] = { "myy`y", "Yank without moving" },
     ["Y"] = { "myY`y", "Yank till the end of the line without moving" },
     ["J"] = { ":m '>+1<CR>gv=gv", "Move selected line down" },
