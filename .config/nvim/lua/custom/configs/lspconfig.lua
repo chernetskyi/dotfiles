@@ -28,6 +28,10 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig["groovyls"].setup {
+  cmd = { "groovy-language-server" },
+}
+
 lspconfig["lua_ls"].setup {
   settings = {
     Lua = {
