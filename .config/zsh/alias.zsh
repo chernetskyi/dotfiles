@@ -21,6 +21,7 @@ alias ll="l -l"
 alias lt="l --tree"
 alias p="python3"
 alias tf="terraform"
+alias tfd="terraform-docs ."
 alias tg="terragrunt"
 alias vc="nvim --clean"
 
