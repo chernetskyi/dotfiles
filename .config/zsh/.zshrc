@@ -3,6 +3,7 @@ sourcex () { source "${1}" || return 0 }
 
 eval "$(atuin init zsh)"
 setopt appendhistory histfindnodups histignorespace histignoredups histreduceblanks
+HISTFILE=""
 
 sourcex /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme \
   && sourcex "${ZDOTDIR:-$HOME/.config/zsh}/.p10k.zsh"
