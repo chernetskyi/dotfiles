@@ -10,6 +10,7 @@ return {
     "gitattributes",
     "gitcommit",
     "gitignore",
+    "groovy",
     "hcl",
     "html",
     "http",
