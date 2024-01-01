@@ -2,6 +2,7 @@
 alias cal="cal -m"
 alias cp="cp -r"
 alias mkdir="mkdir -p"
+alias rg="rg --hidden --glob='!.git/*' --no-config"
 alias rm="rm -rf"
 alias scp="scp -r"
 alias sudo="sudo "
