@@ -5,6 +5,7 @@ return {
     "css-lsp",
     "docker-compose-language-service",
     "dockerfile-language-server",
+    "gopls",
     "groovy-language-server",
     "helm-ls",
     "html-lsp",
