@@ -5,7 +5,7 @@
   useConfigOnly = true
 
 [core]
-  editor = helix
+  editor = hx
 
 [commit]
   gpgsign = true

@@ -34,7 +34,7 @@ history_filter = [
   "^g rvh$",
   "^g s$",
   "^g st$",
-  "^h$",
+  "^hx$",
   "^l ",
   "^l$",
   "^la ",
