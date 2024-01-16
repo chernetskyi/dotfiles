@@ -4,7 +4,16 @@
   useConfigOnly = true
 
 [core]
-  editor = hx
+  editor = nvim
+
+[commit]
+    template = ~/.config/git/committemplate
+
+[diff]
+  tool = nvimdiff
+
+[difftool]
+  prompt = false
 
 [init]
   defaultBranch = main

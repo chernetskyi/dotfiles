@@ -6,8 +6,8 @@ export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg/"
 
 export BROWSER=firefox-developer-edition
-export EDITOR=hx
-export VISUAL=hx
+export EDITOR=nvim
+export VISUAL=nvim
 export PAGER="less -FfR"
 export LESSHISTFILE=-
 export SHELL=zsh

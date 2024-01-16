@@ -43,5 +43,6 @@ history_filter = [
   "^ll ",
   "^ll$",
   "^lt ",
-  "^lt$"
+  "^lt$",
+  "^v$"
 ]

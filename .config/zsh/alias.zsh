@@ -24,6 +24,8 @@ alias p="python3"
 alias tf="terraform"
 alias tfd="terraform-docs ."
 alias tg="terragrunt"
+alias v="nvim"
+alias vc="nvim --clean"
 
 # Dotfiles management
 alias dot='git --git-dir="${XDG_DATA_HOME:-$HOME/.local/share}"/dotfiles/ --work-tree=$HOME'
