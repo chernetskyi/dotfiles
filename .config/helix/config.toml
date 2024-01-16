@@ -9,7 +9,7 @@ line-number = "relative"
 middle-click-paste = false
 
 [editor.statusline]
-left = ["mode", "spinner", "file-base-name", "read-only-indicator", "file-modification-indicator", "version-control"]
+left = ["mode", "spinner", "file-name", "read-only-indicator", "version-control"]
 right = ["register", "diagnostics", "position", "file-type", "file-encoding", "file-line-ending"]
 
 [editor.cursor-shape]
@@ -32,3 +32,6 @@ layout = ["diagnostics", "diff", "line-numbers", "spacer"]
 
 [editor.gutters.line-numbers]
 min-width = 1
+
+[keys.insert]
+"C-[" = "normal_mode"
