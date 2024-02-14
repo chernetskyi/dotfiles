@@ -3,11 +3,17 @@
   email = 19735328+chernetskyi@users.noreply.github.com
   useConfigOnly = true
 
-[core]
-  editor = nvim
+[branch]
+  sort = -committerdate
+
+[column]
+  ui = auto
 
 [commit]
-    template = ~/.config/git/committemplate
+  template = ~/.config/git/committemplate
+
+[core]
+  editor = nvim
 
 [diff]
   tool = nvimdiff
@@ -36,15 +42,15 @@
   bl   = blame
   bs   = bisect
   c    = commit --allow-empty
-  ca   = commit --amend --no-edit
+  ca   = commit --allow-empty --amend --no-edit
   ce   = commit --allow-empty --amend
   cf   = config
   ch   = checkout
-  cl   = clone --no-progress
+  cl   = clone
   cp   = cherry-pick
   d    = diff
   dd   = diff --staged
-  dl   = clone --no-progress --depth 1 --single-branch --branch
+  dl   = clone --depth 1 --single-branch --branch
   ds   = diff --compact-summary
   dt   = difftool
   f    = fetch
@@ -58,8 +64,8 @@
   pl   = pull --ff-only
   plf  = pull --force
   pop  = stash pop
-  ps   = push --no-progress
-  psf  = push --no-progress --force-with-lease --force-if-includes
+  ps   = push
+  psf  = push --force-with-lease --force-if-includes
   r    = rebase
   rank = shortlog -nse --no-merges
   rh   = reset --hard
@@ -72,7 +78,7 @@
   rv   = revert --no-edit
   rvh  = revert --no-edit HEAD
   s    = status --short
-  sb   = clone --no-progress --single-branch --branch
+  sb   = clone --single-branch --branch
   sh   = show
   sl   = shortlog
   st   = stash
@@ -80,6 +86,9 @@
   t    = tag
   tf   = tag --force
 ; }}}
+
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
 
 [credential "https://github.com"]
   helper = 
