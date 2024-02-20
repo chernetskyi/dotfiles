@@ -6,14 +6,12 @@
 [branch]
   sort = -committerdate
 
-[column]
-  ui = auto
-
 [commit]
   template = ~/.config/git/committemplate
 
 [core]
   editor = nvim
+  untrackedCache = true
 
 [diff]
   tool = nvimdiff
@@ -21,14 +19,26 @@
 [difftool]
   prompt = false
 
+[fetch]
+  prune = true
+  prunetags = true
+
+[gpg]
+  format = ssh
+
 [init]
   defaultBranch = main
 
 [merge]
   autoStash = true
+  tool = nvimdiff2
+
+[mergetool]
+  prompt = false
 
 [push]
   autoSetupRemote = true
+  followtags = true
 
 [rebase]
   autoStash = true
@@ -37,20 +47,20 @@
 ; alias {{{
 [alias]
   a    = add
+  aa   = add --all
   af   = add --force
   b    = branch
   bl   = blame
   bs   = bisect
-  c    = commit --allow-empty
-  ca   = commit --allow-empty --amend --no-edit
-  ce   = commit --allow-empty --amend
+  c    = commit
+  ca   = commit --amend --no-edit
+  ce   = commit --amend
   cf   = config
   ch   = checkout
-  cl   = clone
+  cl   = clone --filter=blob:none
   cp   = cherry-pick
   d    = diff
   dd   = diff --staged
-  dl   = clone --depth 1 --single-branch --branch
   ds   = diff --compact-summary
   dt   = difftool
   f    = fetch
@@ -60,6 +70,7 @@
   ll   = log --decorate --graph --format='%Cred%h %Cblue%cn %Cgreen%cr %Creset%s'
   m    = merge
   ms   = merge --squash
+  mt   = mergetool
   nb   = checkout -B
   pl   = pull --ff-only
   plf  = pull --force
@@ -78,7 +89,6 @@
   rv   = revert --no-edit
   rvh  = revert --no-edit HEAD
   s    = status --short
-  sb   = clone --single-branch --branch
   sh   = show
   sl   = shortlog
   st   = stash
