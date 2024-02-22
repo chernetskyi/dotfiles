@@ -13,6 +13,7 @@ history_filter = [
   "^clean$",
   "^exit$",
   "^g a .$",
+  "^g aa$",
   "^g c$",
   "^g ca$",
   "^g ce$",
