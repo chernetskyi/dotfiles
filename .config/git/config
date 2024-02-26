@@ -28,6 +28,7 @@
 
 [init]
   defaultBranch = main
+  templateDir = ~/.config/git/templatedir
 
 [merge]
   autoStash = true
