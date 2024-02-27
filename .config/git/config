@@ -58,7 +58,7 @@
   ce   = commit --amend
   cf   = config
   ch   = checkout
-  cl   = clone --filter=blob:none
+  cl   = clone
   cp   = cherry-pick
   d    = diff
   dd   = diff --staged
