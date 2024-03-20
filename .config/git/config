@@ -44,6 +44,7 @@
 [rebase]
   autoStash = true
   autoSquash = true
+  updateRefs = true
 
 ; alias {{{
 [alias]
@@ -57,7 +58,6 @@
   ca   = commit --amend --no-edit
   ce   = commit --amend
   cf   = config
-  ch   = checkout
   cl   = clone
   cp   = cherry-pick
   d    = diff
@@ -87,6 +87,7 @@
   rmt  = remote
   root = rev-parse --show-toplevel
   rs   = reset --soft
+  rst  = restore
   rv   = revert --no-edit
   rvh  = revert --no-edit HEAD
   s    = status --short
