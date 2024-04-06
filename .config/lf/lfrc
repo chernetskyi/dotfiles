@@ -2,8 +2,7 @@
 set autoquit         true
 set cursorpreviewfmt ""
 set drawbox          true
-set icons            true
-set incsearch true
+set incsearch        true
 set mouse            true
 set scrolloff        8
 set shell            zsh
