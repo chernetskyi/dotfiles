@@ -6,9 +6,6 @@
 [branch]
   sort = -committerdate
 
-[commit]
-  template = ~/.config/git/committemplate
-
 [core]
   editor = nvim
   untrackedCache = true

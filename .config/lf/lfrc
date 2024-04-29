@@ -4,7 +4,11 @@ set cursorpreviewfmt ""
 set drawbox          true
 set incsearch        true
 set mouse            true
-set scrolloff        8
+set number           true
+set previewer        " "
+set ratios           1:1:1
+set relativenumber   true
+set scrolloff        9
 set shell            zsh
 set shellopts        "-eu"
 
@@ -18,16 +22,3 @@ map .       :set hidden!
 
 map J :updir; set dironly true; down; set dironly false; open
 map K :updir; set dironly true; up; set dironly false; open
-
-set previewer ~/.config/lf/preview.zsh
-set cleaner   ~/.config/lf/clean.zsh
-
-cmd toggle_preview %{{
-  if [ "$lf_preview" = "true" ]; then
-    lf -remote "send $id :set preview false; set ratios 1:5"
-  else
-    lf -remote "send $id :set preview true; set ratios 1:2:3"
-  fi
-}}
-
-map zp toggle_preview
