@@ -22,6 +22,7 @@ return {
   },
   config = function()
     require('telescope').setup({
+      -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#ripgrep-remove-indentation
       defaults = {
         vimgrep_arguments = {
           'rg',

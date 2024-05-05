@@ -1,6 +1,9 @@
 return {
   'lewis6991/gitsigns.nvim',
   event = 'VeryLazy',
+  keys = {
+    { '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<CR>', desc = 'Toggle current line git blame' },
+  },
   opts = {
     signs = {
       add = { text = '+' },
@@ -9,6 +12,14 @@ return {
       topdelete = { text = '‾' },
       changedelete = { text = '~' },
       untracked = { text = '┆' },
+    },
+    numhl = true,
+    current_line_blame_opts = {
+      virt_text = true,
+      virt_text_pos = 'eol',
+      delay = 500,
+      ignore_whitespace = false,
+      virt_text_priority = 100,
     },
   },
 }

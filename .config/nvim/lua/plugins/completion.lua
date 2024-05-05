@@ -16,6 +16,7 @@ return {
   config = function()
     local cmp = require('cmp')
     local luasnip = require('luasnip')
+    local types = require('cmp.types')
 
     luasnip.config.setup()
 
@@ -50,7 +51,7 @@ return {
         { name = 'path' },
         { name = 'buffer' },
       },
-      confirmation = { default_behavior = require('cmp.types').cmp.ConfirmBehavior.Replace },
+      confirmation = { default_behavior = types.cmp.ConfirmBehavior.Replace },
       experimental = { ghost_text = true },
     })
 

@@ -1,7 +1,6 @@
 # vim:ft=conf
 set autoquit         true
-set cursorpreviewfmt ""
-set drawbox          true
+set cursorpreviewfmt "\033[7m"
 set incsearch        true
 set mouse            true
 set number           true

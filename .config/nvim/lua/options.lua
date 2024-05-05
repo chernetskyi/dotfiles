@@ -9,7 +9,6 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 
 -- Decrease update time
-vim.opt.timeoutlen = 300
 vim.opt.updatetime = 250
 
 -- UI
@@ -50,5 +49,4 @@ vim.opt.smartcase = true
 -- Misc
 vim.opt.mouse = 'a'
 vim.opt.undofile = true
-vim.opt.wildmode = { 'longest', 'full' }
 vim.opt.virtualedit = 'block'
