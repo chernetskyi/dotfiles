@@ -10,7 +10,7 @@ sourcex /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme \
 
 setopt autocd nobeep noextendedglob nohup nomatch nonotify
 
-# Completion {{{
+# Completion
 fpath=(/usr/share/zsh/site-functions $fpath)
 autoload -Uz compinit
 zstyle ':autocomplete:*' insert-unambiguous yes
@@ -29,7 +29,6 @@ zstyle ':completion:*:messages' format '%F{yellow}%B%d:%b%f'
 zstyle ':completion:*:warnings' format '%F{red}%Bno matches found%b%f'
 compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-${ZSH_VERSION}"
 _comp_options+=(globdots)
-# }}}
 
 # Vi mode {{{
 bindkey -A viins main
@@ -75,5 +74,3 @@ bindkey -M vicmd '^e' edit-command-line
 
 sourcex "${XDG_CONFIG_HOME:-$HOME/.config}/lf/lf.zsh"
 sourcex "${ZDOTDIR:-$HOME/.config/zsh}/alias.zsh"
-
-# vim:foldmethod=marker:foldlevel=0

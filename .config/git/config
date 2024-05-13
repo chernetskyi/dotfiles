@@ -43,7 +43,17 @@
   autoSquash = true
   updateRefs = true
 
-; alias {{{
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+
+[credential "https://github.com"]
+  helper = 
+  helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+  helper = 
+  helper = !/usr/bin/gh auth git-credential
+
 [alias]
   a    = add
   aa   = add --all
@@ -94,17 +104,3 @@
   sw   = switch
   t    = tag
   tf   = tag --force
-; }}}
-
-[url "ssh://git@github.com/"]
-  insteadOf = https://github.com/
-
-[credential "https://github.com"]
-  helper = 
-  helper = !/usr/bin/gh auth git-credential
-
-[credential "https://gist.github.com"]
-  helper = 
-  helper = !/usr/bin/gh auth git-credential
-
-; vim:foldmethod=marker:foldlevel=0
