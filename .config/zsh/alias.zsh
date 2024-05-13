@@ -8,6 +8,9 @@ alias scp="scp -r"
 alias sudo="sudo "
 alias wget='wget --hsts-file="${XDG_CACHE_HOME:-$HOME/.local/share}/wget-hsts"'
 
+# Change default behavior with environment variables
+export TF_CLI_ARGS_fmt="-recursive"
+
 # Shorten commands
 alias cdg='git rev-parse --is-inside-work-tree &> /dev/null && cd $(git rev-parse --show-toplevel)'
 alias d="docker"
@@ -29,5 +32,3 @@ alias vc="nvim --clean"
 
 # Dotfiles management
 alias dot='git --git-dir="${XDG_DATA_HOME:-$HOME/.local/share}"/dotfiles/ --work-tree=$HOME'
-
-# vim:foldmethod=marker:foldlevel=0
