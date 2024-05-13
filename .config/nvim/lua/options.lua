@@ -18,7 +18,6 @@ vim.opt.signcolumn = 'yes'
 
 vim.opt.breakindent = true
 vim.opt.linebreak = true
-vim.opt.wrap = false
 
 vim.opt.list = true
 vim.opt.listchars = { tab = '-->', trail = '·', nbsp = '␣' }

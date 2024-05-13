@@ -26,4 +26,6 @@ vim.keymap.set('', 'k', function() return vim.v.count == 0 and 'gk' or 'k' end, 
 vim.keymap.set('n', '<tab>', ':bnext<CR>')
 vim.keymap.set('n', '<S-tab>', ':bprev<CR>')
 
+vim.keymap.set('n', '<leader>tw', ':set wrap!<CR>', { silent = true })
+
 vim.keymap.set('n', '<leader>fm', function() vim.lsp.buf.format() end)
