@@ -12,6 +12,7 @@ alias wget='wget --hsts-file="${XDG_CACHE_HOME:-$HOME/.local/share}/wget-hsts"'
 export TF_CLI_ARGS_fmt="-recursive"
 
 # Shorten commands
+alias a="aws"
 alias cdg='git rev-parse --is-inside-work-tree &> /dev/null && cd $(git rev-parse --show-toplevel)'
 alias d="docker"
 alias dc="docker compose"
