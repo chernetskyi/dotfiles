@@ -30,7 +30,7 @@ zstyle ':completion:*:warnings' format '%F{red}%Bno matches found%b%f'
 compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-${ZSH_VERSION}"
 _comp_options+=(globdots)
 
-# Vi mode {{{
+# Vi mode
 bindkey -A viins main
 export KEYTIMEOUT=1
 
@@ -46,7 +46,6 @@ bindkey -v "^[[1;5C" forward-word
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd '^e' edit-command-line
-# }}}
 
 sourcex "${XDG_CONFIG_HOME:-$HOME/.config}/lf/lf.zsh"
 sourcex "${ZDOTDIR:-$HOME/.config/zsh}/alias.zsh"
