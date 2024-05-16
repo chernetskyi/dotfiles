@@ -52,7 +52,6 @@ return {
         { name = 'buffer' },
       },
       confirmation = { default_behavior = types.cmp.ConfirmBehavior.Replace },
-      experimental = { ghost_text = true },
     })
 
     cmp.setup.cmdline({ '/', '?' }, {
