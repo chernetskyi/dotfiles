@@ -6,7 +6,7 @@ setopt appendhistory histfindnodups histignorespace histignoredups histreducebla
 HISTFILE=""
 
 sourcex /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme \
-  && sourcex "${ZDOTDIR:-$HOME/.config/zsh}/.p10k.zsh"
+  && sourcex "${ZDOTDIR:-$HOME/.config/zsh}/p10k.zsh"
 
 setopt autocd nobeep noextendedglob nohup nomatch nonotify
 
