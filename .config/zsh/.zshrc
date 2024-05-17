@@ -1,12 +1,9 @@
-exist () { command -v "${1}" &> /dev/null }
-sourcex () { source "${1}" || return 0 }
-
 eval "$(atuin init zsh)"
 setopt appendhistory histfindnodups histignorespace histignoredups histreduceblanks
 HISTFILE=""
 
-sourcex /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme \
-  && sourcex "${ZDOTDIR:-$HOME/.config/zsh}/p10k.zsh"
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme \
+  && source "${ZDOTDIR:-$HOME/.config/zsh}/p10k.zsh"
 
 setopt autocd nobeep noextendedglob nohup nomatch nonotify
 
@@ -47,5 +44,5 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd '^e' edit-command-line
 
-sourcex "${XDG_CONFIG_HOME:-$HOME/.config}/lf/lf.zsh"
-sourcex "${ZDOTDIR:-$HOME/.config/zsh}/alias.zsh"
+source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/lf.zsh"
+source "${ZDOTDIR:-$HOME/.config/zsh}/alias.zsh"
