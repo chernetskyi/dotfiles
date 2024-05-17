@@ -2,7 +2,7 @@ return {
   'lewis6991/gitsigns.nvim',
   event = 'VeryLazy',
   keys = {
-    { '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<CR>', desc = 'Toggle current line git blame' },
+    { '<leader>gb', function() require('gitsigns').toggle_current_line_blame() end, desc = 'Toggle current line git blame' },
   },
   opts = {
     signs = {

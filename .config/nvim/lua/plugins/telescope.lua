@@ -11,14 +11,14 @@ return {
   },
   cmd = 'Telescope',
   keys = {
-    { '<leader><leader>', '<cmd>Telescope buffers<CR>',         desc = 'Find buffer' },
-    { '<leader>ff',       '<cmd>Telescope find_files<CR>',      desc = 'Find file' },
-    { '<leader>fg',       '<cmd>Telescope git_files<CR>',       desc = 'Find git file' },
-    { '<leader>fhc',      '<cmd>Telescope command_history<CR>', desc = 'Find history of commands' },
-    { '<leader>fhs',      '<cmd>Telescope search_history<CR>',  desc = 'Find history of searches' },
-    { '<leader>fs',       '<cmd>Telescope live_grep<CR>',       desc = 'Find string' },
-    { '<leader>fb',       '<cmd>Telescope builtin<CR>',         desc = 'Find Telescope builtin picker' },
-    { '<leader>ss',       '<cmd>Telescope spell_suggest<CR>',   desc = 'Spell suggestions' },
+    { '<leader><leader>', function() require('telescope.builtin').buffers() end,         desc = 'Find buffer' },
+    { '<leader>ff',       function() require('telescope.builtin').find_files() end,      desc = 'Find file' },
+    { '<leader>fg',       function() require('telescope.builtin').git_files() end,       desc = 'Find git file' },
+    { '<leader>fhc',      function() require('telescope.builtin').command_history() end, desc = 'Find history of commands' },
+    { '<leader>fhs',      function() require('telescope.builtin').search_history() end,  desc = 'Find history of searches' },
+    { '<leader>fs',       function() require('telescope.builtin').live_grep() end,       desc = 'Find string' },
+    { '<leader>fb',       function() require('telescope.builtin').builtin() end,         desc = 'Find Telescope builtin picker' },
+    { '<leader>ss',       function() require('telescope.builtin').spell_suggest() end,   desc = 'Spell suggestions' },
   },
   config = function()
     require('telescope').setup({
