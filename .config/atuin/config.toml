@@ -1,8 +1,11 @@
 auto_sync = false
 dialect = "uk"
+enter_accept = true
+exit_mode = "return-query"
 inline_height = 11
 show_help = false
 show_preview = false
+show_tabs = false
 style = "compact"
 update_check = false
 
