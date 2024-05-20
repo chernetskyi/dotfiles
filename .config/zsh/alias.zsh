@@ -1,9 +1,8 @@
 # Change default behavior with flags
-alias cal="cal --monday"
-alias cp="cp --recursive"
-alias mkdir="mkdir --parents"
+alias cp="cp -R"
+alias mkdir="mkdir -p"
 alias rg="rg --hidden --glob='!.git/*' --no-config"
-alias rm="rm --recursive --force"
+alias rm="rm -rf"
 alias scp="scp -r"
 alias sudo="sudo"
 alias wget='wget --hsts-file="${XDG_CACHE_HOME:-$HOME/.local/share}/wget-hsts"'
