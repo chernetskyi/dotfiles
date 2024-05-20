@@ -20,6 +20,7 @@ require('lazy').setup(
         cmd = '',
         config = '',
         event = '',
+        favority = '',
         ft = '',
         init = '',
         import = '',
