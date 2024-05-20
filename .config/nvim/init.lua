@@ -43,7 +43,6 @@ require('lazy').setup(
           'matchit',
           'netrwPlugin',
           'tarPlugin',
-          'tohtml',
           'tutor',
           'zipPlugin',
         },
