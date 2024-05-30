@@ -11,8 +11,6 @@ return {
     config = function()
       require('nvim-treesitter.configs').setup({
         ensure_installed = {
-          'bash',
-          'c',
           'comment',
           'css',
           'csv',
@@ -42,23 +40,16 @@ return {
           'json5',
           'jsonc',
           'jsonnet',
-          'lua',
           'luadoc',
           'make',
-          'markdown',
-          'markdown_inline',
           'mermaid',
           'passwd',
-          'python',
-          'query',
           'regex',
           'requirements',
           'sql',
           'ssh_config',
           'terraform',
           'toml',
-          'vim',
-          'vimdoc',
           'yaml',
         },
         auto_installed = false,
@@ -66,7 +57,7 @@ return {
           enable = true,
           disable = function(_, buf)
             local max_filesize = 4 * 1024 * 1024 -- 4 MiB
-            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+            local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(buf))
             if ok and stats and stats.size > max_filesize then
               return true
             end

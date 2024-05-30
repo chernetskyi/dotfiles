@@ -27,7 +27,6 @@ vim.opt.laststatus = 3
 vim.opt.scrolloff = 9
 vim.opt.shortmess:append 'I'
 vim.opt.showmode = false
-vim.opt.termguicolors = true
 
 -- Splits
 vim.opt.splitbelow = true
