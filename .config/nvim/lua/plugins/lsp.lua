@@ -27,6 +27,7 @@ return {
         'jsonnet_ls',
         'lua_ls',
         'marksman',
+        'pylsp',
         'ruff_lsp',
         'sqls',
         'stylelint_lsp',
