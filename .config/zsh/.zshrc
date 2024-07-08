@@ -70,5 +70,5 @@ zle -N edit-command-line
 bindkey -e '^e' edit-command-line
 
 
-source "${XDG_CONFIG_HOME:-$HOME/.config}/lf/lf.zsh"
+source "${XDG_CONFIG_HOME:-$HOME/.config}/yazi/yazi.zsh"
 source "${ZDOTDIR:-$HOME/.config/zsh}/alias.zsh"
