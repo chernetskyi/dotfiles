@@ -5,6 +5,11 @@ on   = [ "d" ]
 run  = "remove --permanently"
 desc = "Permanently delete the files"
 
+[[manager.prepend_keymap]]
+on   = [ "D" ]
+run  = "remove --force --permanently"
+desc = "Permanently delete the files without confirmation"
+
 [[input.prepend_keymap]]
 on   = [ "<Esc>" ]
 run  = "close"

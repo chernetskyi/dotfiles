@@ -5,6 +5,11 @@ use = "rose-pine"
 
 [manager]
 preview_hovered = { fg = "#e0def4", bg = "#26233a" }
+syntect_theme = "~/.config/yazi/flavors/rose-pine.yazi/rose-pine.tmTheme"
+
+[status]
+separator_open = ""
+separator_close = ""
 
 [filetype]
 
