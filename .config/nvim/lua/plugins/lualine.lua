@@ -16,7 +16,16 @@ return {
       lualine_z = { 'location' },
     },
     tabline = {
-      lualine_a = { 'buffers' },
+      lualine_a = {
+        {
+          'buffers',
+          symbols = {
+            modified = ' ●',
+            alternate_file = '',
+            directory =  '',
+          },
+        },
+      },
       lualine_z = { 'tabs' },
     },
   },
