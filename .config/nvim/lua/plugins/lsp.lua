@@ -15,23 +15,18 @@ return {
 
     require('mason-lspconfig').setup({
       ensure_installed = {
-        'ansiblels',
         'bashls',
         'cssls',
         'docker_compose_language_service',
         'dockerls',
-        'gopls',
         'groovyls',
         'helm_ls',
         'html',
         'jsonls',
-        'jsonnet_ls',
         'lua_ls',
         'marksman',
         'pylsp',
         'ruff_lsp',
-        'sqls',
-        'stylelint_lsp',
         'terraformls',
         'tflint',
         'yamlls',
