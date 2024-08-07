@@ -19,6 +19,13 @@ return {
       lualine_a = {
         {
           'buffers',
+          filetype_names = {
+            TelescopePrompt = 'telescope',
+            checkhealth = 'checkhealth',
+            lazy = 'lazy',
+            mason = 'mason',
+            oil = 'oil',
+          },
           symbols = {
             modified = ' ●',
             alternate_file = '',
