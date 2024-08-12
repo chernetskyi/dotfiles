@@ -1,0 +1,9 @@
+version: "1"
+
+git_protocol: ssh
+pager: cat
+prompt: disabled
+
+aliases:
+  s: status
+  prs: pr list
