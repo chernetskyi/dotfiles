@@ -1,13 +1,13 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
-    event = 'BufRead',
+    event = 'VeryLazy',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
   },
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    event = 'BufRead',
+    event = 'VeryLazy',
     config = function()
       require('nvim-treesitter.configs').setup({
         ensure_installed = {
