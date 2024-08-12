@@ -23,6 +23,9 @@ vim.keymap.set('n', '<leader>D', '"+D')
 vim.keymap.set('', 'j', function() return vim.v.count == 0 and 'gj' or 'j' end, { expr = true })
 vim.keymap.set('', 'k', function() return vim.v.count == 0 and 'gk' or 'k' end, { expr = true })
 
+vim.keymap.set('', 'L', '$')
+vim.keymap.set('', 'H', '0')
+
 vim.keymap.set('n', '<tab>', '<cmd>bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<S-tab>', '<cmd>bprev<cr>', { desc = 'Previous buffer' })
 

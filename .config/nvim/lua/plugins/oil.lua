@@ -6,7 +6,6 @@ return {
   },
   opts = {
     columns = {},
-    buf_options = { buflisted = true },
     skip_confirm_for_simple_edits = true,
     constrain_cursor = 'name',
   },

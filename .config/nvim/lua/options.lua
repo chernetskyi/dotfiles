@@ -22,10 +22,10 @@ vim.opt.linebreak = true
 vim.opt.list = true
 vim.opt.listchars = { tab = '-->', trail = '·', nbsp = '␣' }
 
-vim.opt.diffopt:append 'linematch:60'
+vim.opt.diffopt:append('linematch:60')
 vim.opt.laststatus = 3
 vim.opt.scrolloff = 9
-vim.opt.shortmess:append 'I'
+vim.opt.shortmess:append('I')
 vim.opt.showmode = false
 
 -- Splits
