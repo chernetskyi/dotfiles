@@ -29,7 +29,7 @@ alias tfd="terraform-docs ."
 alias tfl="tflint"
 alias tg="terragrunt"
 alias v="nvim"
-alias vc="nvim --clean"
+alias vc="nvim --clean --cmd 'set nu | set rnu'"
 
 # Dotfiles management
 alias dot='git --git-dir="${XDG_DATA_HOME:-$HOME/.local/share}"/dotfiles/ --work-tree=$HOME'
