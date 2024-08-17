@@ -26,7 +26,7 @@ return {
         'lua_ls',
         'marksman',
         'pylsp',
-        'ruff_lsp',
+        'ruff',
         'terraformls',
         'tflint',
         'yamlls',
