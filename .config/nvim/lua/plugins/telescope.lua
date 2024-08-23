@@ -11,13 +11,16 @@ return {
   },
   cmd = 'Telescope',
   keys = {
-    { '<leader><leader>', function() require('telescope.builtin').buffers() end,       desc = 'Find buffer' },
-    { '<leader>fb',       function() require('telescope.builtin').builtin() end,       desc = 'Find Telescope builtin picker' },
-    { '<leader>ff',       function() require('telescope.builtin').find_files() end,    desc = 'Find file' },
-    { '<leader>fg',       function() require('telescope.builtin').git_files() end,     desc = 'Find git file' },
-    { '<leader>fk',       function() require('telescope.builtin').keymaps() end,       desc = 'Find keymap' },
-    { '<leader>fs',       function() require('telescope.builtin').live_grep() end,     desc = 'Find string' },
-    { '<leader>ss',       function() require('telescope.builtin').spell_suggest() end, desc = 'Spell suggestions' },
+    { '<leader><leader>', function() require('telescope.builtin').buffers() end,             desc = 'Find buffer' },
+    { '<leader>fb',       function() require('telescope.builtin').builtin() end,             desc = 'Find Telescope builtin picker' },
+    { '<leader>ff',       function() require('telescope.builtin').find_files() end,          desc = 'Find file' },
+    { '<leader>fg',       function() require('telescope.builtin').git_files() end,           desc = 'Find git file' },
+    { '<leader>fk',       function() require('telescope.builtin').keymaps() end,             desc = 'Find keymap' },
+    { '<leader>fs',       function() require('telescope.builtin').live_grep() end,           desc = 'Find string' },
+    { '<leader>ss',       function() require('telescope.builtin').spell_suggest() end,       desc = 'Spell suggestions' },
+    { 'gI',               function() require('telescope.builtin').lsp_implementations() end, desc = 'LSP: Go to implementation' },
+    { 'gd',               function() require('telescope.builtin').lsp_definitions() end,     desc = 'LSP: Go to definition' },
+    { 'gr',               function() require('telescope.builtin').lsp_references() end,      desc = 'LSP: Go to reference' },
   },
   config = function()
     require('telescope').setup({

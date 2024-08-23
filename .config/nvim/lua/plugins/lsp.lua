@@ -37,6 +37,20 @@ return {
           })
         end,
 
+        basedpyright = function()
+          require('lspconfig').basedpyright.setup({
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            settings = {
+              basedpyright = {
+                disableOrganizeImports = true,
+                analysis = {
+                  ignore = { '*' },
+                },
+              },
+            },
+          })
+        end,
+
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
         ['lua_ls'] = function()
           require('lspconfig').lua_ls.setup({
@@ -55,19 +69,6 @@ return {
               })
             end,
             settings = { Lua = {} },
-          })
-        end,
-
-        basedpyright = function()
-          require('lspconfig').basedpyright.setup({
-            settings = {
-              basedpyright = {
-                disableOrganizeImports = true,
-                analysis = {
-                  ignore = { '*' },
-                },
-              },
-            },
           })
         end,
       },
