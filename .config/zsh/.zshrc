@@ -2,7 +2,6 @@ eval "$(atuin init zsh)"
 HISTFILE=""
 
 setopt APPEND_HISTORY \
-       AUTO_CD \
        AUTO_PARAM_SLASH \
        HIST_FIND_NO_DUPS \
        HIST_IGNORE_DUPS \
