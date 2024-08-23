@@ -1,6 +1,5 @@
 return {
   'neovim/nvim-lspconfig',
-  event = 'VeryLazy',
   dependencies = {
     {
       'williamboman/mason.nvim',
@@ -15,6 +14,7 @@ return {
 
     require('mason-lspconfig').setup({
       ensure_installed = {
+        'basedpyright',
         'bashls',
         'cssls',
         'docker_compose_language_service',
@@ -25,7 +25,6 @@ return {
         'jsonls',
         'lua_ls',
         'marksman',
-        'pylsp',
         'ruff',
         'terraformls',
         'tflint',
@@ -59,20 +58,18 @@ return {
           })
         end,
 
-        pylsp = function()
-          require('lspconfig').pylsp.setup({
+        basedpyright = function()
+          require('lspconfig').basedpyright.setup({
             settings = {
-              pylsp = {
-                plugins = {
-                  autopep8 = { enabled = false },
-                  pycodestyle = { enabled = false },
-                  pyflakes = { enabled = false },
-                  yapf = { enabled = false },
+              basedpyright = {
+                disableOrganizeImports = true,
+                analysis = {
+                  ignore = { '*' },
                 },
               },
             },
           })
-        end
+        end,
       },
     })
   end,
