@@ -16,28 +16,6 @@ require('lazy').setup(
     install = {
       colorscheme = { 'rose-pine' },
     },
-    ui = {
-      icons = {
-        cmd = '',
-        config = '',
-        event = '',
-        favority = '',
-        ft = '',
-        init = '',
-        import = '',
-        keys = '',
-        lazy = '',
-        loaded = '●',
-        not_loaded = '○',
-        plugin = '',
-        runtime = '',
-        require = '',
-        source = '',
-        start = '',
-        task = '',
-        list = { '*', '+', '-' },
-      },
-    },
     change_detection = { enabled = false },
     performance = {
       rtp = {

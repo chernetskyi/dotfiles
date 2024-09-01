@@ -43,7 +43,7 @@ zstyle ':completion:*:*:*:*:descriptions' format '%F{yellow}%B%d%b%f'
 zstyle ':completion:*:*:*:*:messages' format '%F{yellow}%B%d%b%f'
 zstyle ':completion:*:*:*:*:warnings' format '%F{red}%Bno matches found%b%f'
 
-zstyle ':completion:*:*:-command-:*:*' group-order alias builtins functions commands
+zstyle ':completion:*:*:-command-:*:*' group-order alias functions builtins commands
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
