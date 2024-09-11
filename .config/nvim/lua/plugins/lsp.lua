@@ -7,11 +7,10 @@ return {
       cmd = 'Mason',
       config = true,
     },
-    'williamboman/mason-lspconfig.nvim',
     'hrsh7th/cmp-nvim-lsp',
   },
   config = function()
-    local mason_managed_servers = {
+    local mason_servers = {
       'bashls',
       'cssls',
       'docker_compose_language_service',
@@ -25,18 +24,16 @@ return {
       'terraformls',
       'yamlls',
     }
-
-    require('mason').setup()
-    require('mason-lspconfig').setup({ ensure_installed = mason_managed_servers })
-
-    local servers = vim.list_extend(mason_managed_servers, {
+    local global_servers = {
       'basedpyright',
       'ruff',
       'tflint',
-    })
+    }
 
+    local servers = vim.list_extend(mason_servers, global_servers)
     local lspconfig = require('lspconfig')
     local default_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
     for _, server in ipairs(servers) do
       lspconfig[server].setup({ capabilities = default_capabilities })
     end
