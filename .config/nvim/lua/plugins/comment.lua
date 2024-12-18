@@ -1,7 +1,10 @@
 return {
   {
     'numToStr/Comment.nvim',
-    event = { 'BufReadPost', 'BufNewFile' },
+    keys = {
+      { 'gb', mode = { 'n', 'v' } },
+      { 'gc', mode = { 'n', 'v' } },
+    },
     opts = {
       ignore = '^$',
     },
