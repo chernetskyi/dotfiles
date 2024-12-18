@@ -6,13 +6,11 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
-      { 'nvim-telescope/telescope-ui-select.nvim' },
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
-      }
+      },
     },
-    cmd = 'Telescope',
     keys = {
       { '<leader><leader>', function() require('telescope.builtin').buffers() end,             desc = 'Find buffer' },
       { '<leader>fb',       function() require('telescope.builtin').builtin() end,             desc = 'Find Telescope builtin picker' },
@@ -52,14 +50,10 @@ return {
             override_generic_sorter = true,
             override_file_sorter = true,
           },
-          ['ui-select'] = {
-            require('telescope.themes').get_dropdown(),
-          },
         },
       })
 
       require('telescope').load_extension('fzf')
-      require('telescope').load_extension('ui-select')
     end,
   },
 }
