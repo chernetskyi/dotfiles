@@ -1,7 +1,9 @@
 return {
-  'numToStr/Comment.nvim',
-  event = { 'BufReadPost', 'BufNewFile' },
-  opts = {
-    ignore = '^$',
+  {
+    'numToStr/Comment.nvim',
+    event = { 'BufReadPost', 'BufNewFile' },
+    opts = {
+      ignore = '^$',
+    },
   },
 }
