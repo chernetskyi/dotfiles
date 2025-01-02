@@ -24,14 +24,14 @@ rules = [
   # Archives
   { mime = "application/zip", fg = "#eb6f92" },
   { mime = "application/gzip", fg = "#eb6f92" },
-  { mime = "application/x-tar", fg = "#eb6f92" },
-  { mime = "application/x-bzip", fg = "#eb6f92" },
-  { mime = "application/x-bzip2", fg = "#eb6f92" },
-  { mime = "application/x-7z-compressed", fg = "#eb6f92" },
-  { mime = "application/x-rar", fg = "#eb6f92" },
+  { mime = "application/tar", fg = "#eb6f92" },
+  { mime = "application/bzip", fg = "#eb6f92" },
+  { mime = "application/bzip2", fg = "#eb6f92" },
+  { mime = "application/7z-compressed", fg = "#eb6f92" },
+  { mime = "application/rar", fg = "#eb6f92" },
 
   # Empty files
-  { mime = "inode/x-empty", fg = "#524f67" },
+  { mime = "inode/empty", fg = "#524f67" },
 
   # Fallback
   { name = "*", fg = "#e0def4" },
