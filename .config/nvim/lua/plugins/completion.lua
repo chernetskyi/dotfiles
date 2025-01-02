@@ -10,10 +10,13 @@ return {
       appearance = { use_nvim_cmp_as_default = true, },
       completion = {
         documentation = { auto_show = true },
+        list = { selection = 'auto_insert' },
       },
       signature = { enabled = true },
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        min_keyword_length = function()
+          return vim.bo.filetype == 'markdown' and 2 or 0
+        end,
       },
     },
     opts_extend = { 'sources.default' },
