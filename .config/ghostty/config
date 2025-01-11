@@ -1,0 +1,19 @@
+theme = rose-pine
+
+font-family = JetBrains Mono
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
+selection-invert-fg-bg = true
+
+unfocused-split-opacity = 0.99
+
+window-save-state = always
+
+keybind = super+q=unbind
+
+keybind = super+alt+h=goto_split:left
+keybind = super+alt+j=goto_split:bottom
+keybind = super+alt+k=goto_split:top
+keybind = super+alt+l=goto_split:right
