@@ -10,7 +10,6 @@ return {
       appearance = { use_nvim_cmp_as_default = true, },
       completion = {
         documentation = { auto_show = true },
-        list = { selection = 'auto_insert' },
       },
       signature = { enabled = true },
       sources = {
