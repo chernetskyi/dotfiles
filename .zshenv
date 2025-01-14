@@ -10,10 +10,11 @@ export EDITOR=nvim
 export VISUAL=nvim
 export PAGER="less -FfR"
 export LESSHISTFILE=-
-export SHELL=zsh
 
 # https://wiki.archlinux.org/title/Firefox/Tweaks#Pixel-perfect_trackpad_scrolling
 export MOZ_USE_XINPUT2=1
+
+export TF_CLI_ARGS_fmt="-recursive"
 
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
@@ -23,4 +24,3 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export KDEHOME="$XDG_CONFIG_HOME/kde"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
