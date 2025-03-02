@@ -1,39 +1,11 @@
 "$schema" = "https://yazi-rs.github.io/schemas/theme.json"
 
 [flavor]
-use = "rose-pine"
+use = "tokyonight_night"
 
 [manager]
-preview_hovered = { fg = "#e0def4", bg = "#26233a" }
-syntect_theme = "~/.config/yazi/flavors/rose-pine.yazi/rose-pine.tmTheme"
+preview_hovered = { bg = "#292e42" }
 
 [status]
 separator_open = ""
 separator_close = ""
-
-[filetype]
-
-rules = [
-  # Images
-  { mime = "image/*", fg = "#9ccfd8" },
-
-  # Videos
-  { mime = "video/*", fg = "#f6c177" },
-  { mime = "audio/*", fg = "#f6c177" },
-
-  # Archives
-  { mime = "application/zip", fg = "#eb6f92" },
-  { mime = "application/gzip", fg = "#eb6f92" },
-  { mime = "application/tar", fg = "#eb6f92" },
-  { mime = "application/bzip", fg = "#eb6f92" },
-  { mime = "application/bzip2", fg = "#eb6f92" },
-  { mime = "application/7z-compressed", fg = "#eb6f92" },
-  { mime = "application/rar", fg = "#eb6f92" },
-
-  # Empty files
-  { mime = "inode/empty", fg = "#524f67" },
-
-  # Fallback
-  { name = "*", fg = "#e0def4" },
-  { name = "*/", fg = "#e0def4" },
-]

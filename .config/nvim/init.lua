@@ -14,7 +14,7 @@ require('lazy').setup(
   {
     rocks = { enabled = false },
     install = {
-      colorscheme = { 'rose-pine' },
+      colorscheme = { 'tokyonight-night' },
     },
     performance = {
       rtp = {

@@ -1,13 +1,11 @@
+# vim:ft=conf
 command = fish
 
-theme = rose-pine
+theme = tokyonight_night
 
-font-family = JetBrains Mono
-font-feature = -calt
-font-feature = -liga
-font-feature = -dlig
-
-selection-invert-fg-bg = true
+font-family = Monaspace Argon Var
+font-feature = -calt, -liga
+font-variation = wght=500
 
 unfocused-split-opacity = 0.99
 

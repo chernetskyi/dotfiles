@@ -1,5 +1,5 @@
 function init_fish
-    fish_config theme choose "Rosé Pine"
+    fish_config theme choose "tokyonight_night"
 
     set -U fish_greeting
     set -U fish_prompt_pwd_dir_length 5
