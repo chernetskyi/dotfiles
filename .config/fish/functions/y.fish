@@ -5,5 +5,4 @@ function y
         builtin cd -- "$cwd"
     end
     command rm -f -- "$tmp"
-    commandline -f repaint
 end
