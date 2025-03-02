@@ -10,13 +10,13 @@ local toogle_search_aug = vim.api.nvim_create_augroup('ToogleIncSearchHighlight'
 vim.api.nvim_create_autocmd('CmdLineEnter', {
   group = toogle_search_aug,
   callback = function()
-    vim.opt.hlsearch = true
+    vim.o.hlsearch = true
   end,
 })
 vim.api.nvim_create_autocmd('CmdLineLeave', {
   group = toogle_search_aug,
   callback = function()
-    vim.opt.hlsearch = false
+    vim.o.hlsearch = false
   end,
 })
 
@@ -24,13 +24,13 @@ local toggle_numbers_aug = vim.api.nvim_create_augroup('ToggleRelativeNumber', {
 vim.api.nvim_create_autocmd('InsertLeave', {
   group = toggle_numbers_aug,
   callback = function()
-    vim.opt.relativenumber = true
+    vim.o.relativenumber = true
   end,
 })
 vim.api.nvim_create_autocmd('InsertEnter', {
   group = toggle_numbers_aug,
   callback = function()
-    vim.opt.relativenumber = false
+    vim.o.relativenumber = false
   end,
 })
 
