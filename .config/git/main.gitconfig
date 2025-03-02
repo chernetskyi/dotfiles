@@ -2,17 +2,32 @@
 [branch]
   sort = -committerdate
 
+[column]
+  ui = plain
+
+[commit]
+  verbose = true
+
 [core]
+  commentChar = auto
   editor = nvim
   untrackedCache = true
 
 [diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
   tool = nvimdiff
 
 [difftool]
   prompt = false
 
+[feature]
+  experimental = true
+
 [fetch]
+  all = true
   prune = true
   prunetags = true
 
@@ -36,6 +51,9 @@
   autoSquash = true
   updateRefs = true
 
+[tag]
+  sort = version:refname
+
 [alias]
   a    = add
   aa   = add --all
@@ -53,7 +71,7 @@
   fu   = commit --fixup
   i    = init
   l    = ll -n 10
-  ll   = log --decorate --graph --format='%Cred%h %Cblue%cn %Cgreen%cr %Creset%s'
+  ll   = log --graph --format='%Cred%h %Cblue%cn %Cgreen%cr %Creset%s %Cred%D'
   m    = merge
   ms   = merge --squash
   nb   = checkout -B
@@ -62,7 +80,6 @@
   ps   = push
   psf  = push --force-with-lease --force-if-includes
   r    = rebase
-  rank = shortlog -nse --no-merges
   rh   = reset --hard
   ri   = rebase --interactive
   rl   = reflog
