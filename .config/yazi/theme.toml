@@ -3,7 +3,7 @@
 [flavor]
 use = "tokyonight_night"
 
-[manager]
+[mgr]
 preview_hovered = { bg = "#292e42" }
 
 [status]
