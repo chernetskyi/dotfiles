@@ -5,19 +5,17 @@ return {
     dependencies = {
       'rafamadriz/friendly-snippets',
     },
-    version = 'v0.*',
+    version = '1.*',
     opts = {
-      appearance = { use_nvim_cmp_as_default = true, },
+      cmdline = {
+        completion = {
+          menu = { auto_show = true },
+        },
+      },
       completion = {
         documentation = { auto_show = true },
       },
       signature = { enabled = true },
-      sources = {
-        min_keyword_length = function()
-          return vim.bo.filetype == 'markdown' and 2 or 0
-        end,
-      },
     },
-    opts_extend = { 'sources.default' },
   },
 }

@@ -4,7 +4,13 @@ return {
     event = 'VeryLazy',
     cmd = 'Gitsigns',
     keys = {
-      { '<leader>gb', function() require('gitsigns').toggle_current_line_blame() end, desc = 'Toggle current line git blame' },
+      {
+        '<leader>gb',
+        function()
+          require('gitsigns').toggle_current_line_blame()
+        end,
+        desc = 'Toggle current line git blame',
+      },
     },
     opts = {
       signs = {

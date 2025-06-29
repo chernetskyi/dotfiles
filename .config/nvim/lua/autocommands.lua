@@ -2,7 +2,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking text',
   group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
 })
 
@@ -45,16 +45,19 @@ vim.api.nvim_create_autocmd('VimResized', {
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('LspAttach', { clear = true }),
   callback = function(event)
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = event.buf, desc = 'LSP: Rename' })
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = event.buf, desc = 'LSP: Code action' })
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = event.buf, desc = 'LSP: Go to declaration' })
+    vim.keymap.set(
+      'n',
+      'gD',
+      vim.lsp.buf.declaration,
+      { buffer = event.buf, desc = 'LSP: Go to declaration' }
+    )
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     if client == nil then
       return
     end
 
-    if client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
       local highlight_augroup = vim.api.nvim_create_augroup('LspHighlight', { clear = false })
       vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
         buffer = event.buf,
@@ -77,7 +80,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       })
     end
 
-    if client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
       vim.keymap.set('n', '<leader>th', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
       end, { desc = 'Toggle inlay hints' })

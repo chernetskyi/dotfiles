@@ -30,7 +30,7 @@ return {
             symbols = {
               modified = ' ●',
               alternate_file = '',
-              directory =  '',
+              directory = '',
             },
           },
         },

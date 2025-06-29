@@ -3,11 +3,8 @@ command = fish
 
 theme = tokyonight_night
 
-font-family = Monaspace Argon Var
-font-feature = -calt, -liga
-font-variation = wght=500
-
-unfocused-split-opacity = 0.99
+font-family = IBM Plex Mono Bold
+font-feature = -calt
 
 window-save-state = always
 

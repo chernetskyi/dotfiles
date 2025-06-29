@@ -7,8 +7,8 @@ return {
         style = 'night',
         transparent = true,
         styles = {
-          comments = {},
-          keywords = {},
+          comments = { italic = false },
+          keywords = { italic = false },
         },
       })
       vim.cmd.colorscheme('tokyonight-night')

@@ -1,4 +1,100 @@
-[include]
-  path = "~/.config/git/main.gitconfig"
+[branch]
+  sort = -committerdate
+
+[column]
+  ui = plain
+
+[commit]
+  verbose = true
+
+[core]
+  commentChar = auto
+  editor = nvim
+  untrackedCache = true
+
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+  tool = nvimdiff
+
+[difftool]
+  prompt = false
+
+[feature]
+  experimental = true
+
+[fetch]
+  all = true
+  prune = true
+  prunetags = true
+
+[init]
+  defaultBranch = main
+  templateDir = ~/.config/git/templatedir
+
+[merge]
+  autoStash = true
+  tool = nvimdiff2
+
+[mergetool]
+  prompt = false
+
+[push]
+  autoSetupRemote = true
+  followtags = true
+
+[rebase]
+  autoStash = true
+  autoSquash = true
+  updateRefs = true
+
+[tag]
+  sort = version:refname
+
+[alias]
+  a    = add
+  aa   = add --all
+  af   = add --force
+  b    = branch
+  c    = commit
+  ca   = commit --amend --no-edit
+  ce   = commit --amend
+  cl   = clone
+  cp   = cherry-pick --ff
+  d    = diff
+  dd   = diff --staged
+  ds   = diff --compact-summary
+  f    = fetch
+  fu   = commit --fixup
+  i    = init
+  l    = ll --max-count 10
+  ll   = log --graph --format='%Cred%h %Cblue%cn %Cgreen%cr %Creset%s %Cred%D'
+  nb   = switch --force-create
+  pl   = pull --ff-only
+  plf  = pull --force
+  plr  = pull --rebase
+  ps   = push
+  psf  = push --force-with-lease --force-if-includes
+  pst  = push --tags
+  r    = rebase
+  rh   = reset --hard
+  rhh  = reset --hard HEAD~1
+  ri   = rebase --interactive
+  rl   = reflog
+  rm   = rm -r
+  rmt  = remote
+  root = rev-parse --show-toplevel
+  rs   = reset --soft
+  rsh  = reset --soft HEAD~1
+  rv   = revert --no-edit
+  rvh  = revert --no-edit HEAD
+  s    = status --short
+  sh   = show
+  sw   = switch
+  t    = tag
+  tf   = tag --force
+
 [include]
   path = "~/.config/git/personal.gitconfig"

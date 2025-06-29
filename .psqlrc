@@ -1,0 +1,14 @@
+\set QUIET 1
+
+\set PROMPT1 '%n@%/%R%#%x '
+\set PROMPT2 '%n@%/%R%#%x '
+
+\set COMP_KEYWORD_CASE upper
+
+\set HISTCONTROL ignoredups
+
+\pset null '[NULL]'
+
+\timing
+
+\set QUIET 0
